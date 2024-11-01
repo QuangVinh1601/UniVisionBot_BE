@@ -1,0 +1,266 @@
+[
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Login.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/Login/register/admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Register.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "RegisterConsultant",
+    "RelativePath": "api/Login/register/consultant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Register.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "Register",
+    "RelativePath": "api/Login/register/user",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Register.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "CreateRole",
+    "RelativePath": "api/Login/roles/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Role.RoleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "User",
+    "RelativePath": "api/Login/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "Method": "CreateFaculty",
+    "RelativePath": "api/universities/{universityId}/faculties",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Faculty.FacultyRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "universityId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "Method": "GetFacultyByUniversityId",
+    "RelativePath": "api/universities/{universityId}/faculties",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "universityId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "Method": "UpdateFaculty",
+    "RelativePath": "api/universities/{universityId}/faculties/{facultyId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Faculty.FacultyRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "universityId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "Method": "DeleteFaculty",
+    "RelativePath": "api/universities/{universityId}/faculties/{facultyId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "universityId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "Method": "CreateNewUniversity",
+    "RelativePath": "api/University",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "UniVisionBot.DTOs.University.UniversityRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "Method": "GetAllUniversity",
+    "RelativePath": "api/University",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "Method": "GetUniversityById",
+    "RelativePath": "api/University/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "Method": "UpdateUniversity",
+    "RelativePath": "api/University/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.University.UniversityRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "Method": "DeleteUniversity",
+    "RelativePath": "api/University/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
