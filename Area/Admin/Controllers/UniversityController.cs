@@ -6,7 +6,7 @@ using UniVisionBot.DTOs.University;
 using UniVisionBot.Models;
 using UniVisionBot.Services.Universities;
 
-namespace UniVisionBot.Area.Controllers
+namespace UniVisionBot.Area.Admin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -41,7 +41,7 @@ namespace UniVisionBot.Area.Controllers
             return Ok(resultUniversity);
         }
         [HttpGet]
-        public IActionResult GetAllUniversity([FromQuery]int? page)
+        public IActionResult GetAllUniversity([FromQuery] int? page)
         {
             var university = _universityRepository.GetAllUniversity(page);
             return Ok(university);

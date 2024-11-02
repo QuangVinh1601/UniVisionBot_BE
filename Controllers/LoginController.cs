@@ -8,6 +8,7 @@ using System.Text;
 using UniVisionBot.DTOs.Login;
 using UniVisionBot.DTOs.Register;
 using UniVisionBot.DTOs.Role;
+using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
 using UniVisionBot.Services.Login;
 
@@ -74,6 +75,10 @@ namespace UniVisionBot.Controllers
         public async Task<IActionResult> User()
         {
             var JwtToken =  Request.Cookies["JWT"];
+            if (string.IsNullOrEmpty(JwtToken))
+            {
+                throw new BadInputException("Token is missing");
+            }
             var verifiedToken = await _loginRepository.VerifyToken(JwtToken);
             var userId = verifiedToken.Claims.First(c => c.Type == ClaimTypes.NameIdentifier);
                 return Ok(userId);

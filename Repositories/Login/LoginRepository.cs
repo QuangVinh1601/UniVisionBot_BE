@@ -145,11 +145,12 @@ namespace UniVisionBot.Repositories.Login
             return new LoginResponse
             {
                 AccessToken = createToken,
+                RoleUser = token.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "USER",
                 Email = user.Email,
                 Success = true,
                 Message = "Login successfull",
                 UserId = user.Id.ToString(),
-            };
+            }; 
 
         }
 

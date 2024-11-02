@@ -19,6 +19,9 @@ namespace UniVisionBot.Models
         [BsonElement("description")]
         public string Description { get; set; }
 
+        [BsonElement("university_code")]
+        public string UniversityCode { get; set; }
+
 
         [BsonElement("scholarships_available")]
         public bool ScholarshipsAvailable { get; set; }

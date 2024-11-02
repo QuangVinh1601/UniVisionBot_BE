@@ -42,7 +42,7 @@ namespace UniVisionBot.Models
         public Dictionary<string, int> EntryScoreRecord { get; set; } // Điểm học bạ theo từng năm
 
         [BsonElement("tuition_fee")]
-        public Dictionary<string, decimal> TuitionFee { get; set; } // Học phí theo từng năm
+        public decimal TuitionFee { get; set; } // Học phí theo từng năm
 
         [BsonElement("notes")]
         public string Notes { get; set; }
@@ -50,7 +50,5 @@ namespace UniVisionBot.Models
         [BsonElement("created_at")]
         public DateTime CreatedAt { get; set; }
 
-        [BsonElement("updated_at")]
-        public DateTime UpdatedAt { get; set; }
-    }
+    }  
 }

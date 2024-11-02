@@ -21,6 +21,8 @@ using UniVisionBot.Repositories.Login;
 using UniVisionBot.Middlewares;
 using UniVisionBot.Services.Faculty;
 using UniVisionBot.Repositories.Faculties;
+using UniVisionBot.Services.Major;
+using UniVisionBot.Repositories.MajorRepository;
 
 namespace UniVisionBot
 {
@@ -42,6 +44,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<IUniversityRepository, UniversityRepository>();
             builder.Services.AddScoped<ILoginRepository, LoginRepository>();
             builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+            builder.Services.AddScoped<IMajorRepository, MajorRepository>();
 
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

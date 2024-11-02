@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "Create",
+    "RelativePath": "api/faculties/{facultyId}/major",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Major.MajorRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UniVisionBot.Controllers.LoginController",
     "Method": "Login",
     "RelativePath": "api/Login/login",
@@ -90,7 +111,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.FacultyController",
     "Method": "CreateFaculty",
     "RelativePath": "api/universities/{universityId}/faculties",
     "HttpMethod": "POST",
@@ -111,7 +132,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.FacultyController",
     "Method": "GetFacultyByUniversityId",
     "RelativePath": "api/universities/{universityId}/faculties",
     "HttpMethod": "GET",
@@ -132,7 +153,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.FacultyController",
     "Method": "UpdateFaculty",
     "RelativePath": "api/universities/{universityId}/faculties/{facultyId}",
     "HttpMethod": "PUT",
@@ -158,7 +179,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.FacultyController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.FacultyController",
     "Method": "DeleteFaculty",
     "RelativePath": "api/universities/{universityId}/faculties/{facultyId}",
     "HttpMethod": "DELETE",
@@ -179,7 +200,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.UniversityController",
     "Method": "CreateNewUniversity",
     "RelativePath": "api/University",
     "HttpMethod": "POST",
@@ -195,7 +216,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.UniversityController",
     "Method": "GetAllUniversity",
     "RelativePath": "api/University",
     "HttpMethod": "GET",
@@ -211,7 +232,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.UniversityController",
     "Method": "GetUniversityById",
     "RelativePath": "api/University/id",
     "HttpMethod": "GET",
@@ -227,7 +248,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.UniversityController",
     "Method": "UpdateUniversity",
     "RelativePath": "api/University/id",
     "HttpMethod": "PUT",
@@ -248,7 +269,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Area.Controllers.UniversityController",
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.UniversityController",
     "Method": "DeleteUniversity",
     "RelativePath": "api/University/id",
     "HttpMethod": "DELETE",

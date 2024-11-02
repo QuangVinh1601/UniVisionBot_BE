@@ -4,7 +4,7 @@ using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
 using UniVisionBot.Services.Faculty;
 
-namespace UniVisionBot.Area.Controllers
+namespace UniVisionBot.Area.Admin.Controllers
 {
     [ApiController]
     [Route("api/universities/{universityId}/faculties")]
@@ -16,17 +16,17 @@ namespace UniVisionBot.Area.Controllers
             _facultyRepository = facultyRepository;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateFaculty([FromBody]FacultyRequest request, string universityId)
+        public async Task<IActionResult> CreateFaculty([FromBody] FacultyRequest request, string universityId)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 throw new BadInputException("Invalid input");
             }
-            var result =  await _facultyRepository.CreateAsync(request, universityId);
+            var result = await _facultyRepository.CreateAsync(request, universityId);
             return result.Success ? Ok(result) : BadRequest("Failed to created");
         }
         [HttpPut("{facultyId}")]
-        public async Task<IActionResult> UpdateFaculty([FromBody]FacultyRequest request, string universityId, string facultyId)
+        public async Task<IActionResult> UpdateFaculty([FromBody] FacultyRequest request, string universityId, string facultyId)
         {
             if (!ModelState.IsValid)
             {
@@ -44,8 +44,8 @@ namespace UniVisionBot.Area.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFacultyByUniversityId(string universityId, [FromQuery] int? page)
         {
-           var result = await _facultyRepository.GetAllFacultyOfUniversity(universityId, page);
-           return Ok(result);
+            var result = await _facultyRepository.GetAllFacultyOfUniversity(universityId, page);
+            return Ok(result);
         }
     }
 }
