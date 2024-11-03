@@ -4,7 +4,7 @@
     {
         public string Id { get; set; }
         public string FacultyId { get; set; }
-        public string CareerId { get; set; }
+        public List<string> CareerIds { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Level { get; set; }

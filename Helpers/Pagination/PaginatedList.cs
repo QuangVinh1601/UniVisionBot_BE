@@ -2,7 +2,7 @@
 {
     public class PaginatedList<T> : List<T>
     {
-        private const int PAGE_SIZE = 10; 
+        private const int PAGE_SIZE = 5; 
         public int TotalPage { get; set; }
         public int CurrentPage { get; set; }
         public int TotalItems { get; set; }

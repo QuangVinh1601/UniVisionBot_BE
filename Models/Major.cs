@@ -9,13 +9,15 @@ namespace UniVisionBot.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        public string Id { get; set; }
 
         [BsonElement("faculty_id")]
-        public ObjectId FacultyId { get; set; } // Reference to Faculty
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string FacultyId { get; set; } // Reference to Faculty
 
-        [BsonElement("career_id")]
-        public ObjectId CareerId { get; set; } // Reference to CareerPath
+        [BsonElement("career_ids")]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public List<string> CareerIds { get; set; } // Changed to a list of ObjectIds
 
         [BsonElement("name")]
         public string Name { get; set; }
@@ -50,5 +52,5 @@ namespace UniVisionBot.Models
         [BsonElement("created_at")]
         public DateTime CreatedAt { get; set; }
 
-    }  
+    }
 }

@@ -21,6 +21,74 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "GetAllMajorOfFaculty",
+    "RelativePath": "api/faculties/{facultyId}/major",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "facultyId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "UpdateMajor",
+    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Major.MajorRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "DeleteMajor",
+    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UniVisionBot.Controllers.LoginController",
     "Method": "Login",
     "RelativePath": "api/Login/login",
