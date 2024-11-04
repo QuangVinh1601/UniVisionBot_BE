@@ -15,7 +15,7 @@
       {
         "Name": "facultyId",
         "Type": "",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -31,7 +31,7 @@
       {
         "Name": "facultyId",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "page",
@@ -62,7 +62,7 @@
       {
         "Name": "facultyId",
         "Type": "",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -83,7 +83,7 @@
       {
         "Name": "facultyId",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -348,6 +348,32 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
+    "Method": "GetTitleUniversityExamScore",
+    "RelativePath": "api/UniversityExamScore",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
+    "Method": "GetTitleUniversityExamScoreFromSearching",
+    "RelativePath": "api/UniversityExamScore",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.UniversityExamScore.UniversityExamScoreRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

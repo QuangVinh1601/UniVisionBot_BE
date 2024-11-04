@@ -23,6 +23,8 @@ using UniVisionBot.Services.Faculty;
 using UniVisionBot.Repositories.Faculties;
 using UniVisionBot.Services.Major;
 using UniVisionBot.Repositories.MajorRepository;
+using UniVisionBot.Services.IUniversityExamScore;
+using UniVisionBot.Repositories.UniversityExamScore;
 
 namespace UniVisionBot
 {
@@ -45,6 +47,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<ILoginRepository, LoginRepository>();
             builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
             builder.Services.AddScoped<IMajorRepository, MajorRepository>();
+            builder.Services.AddScoped<IUniversityExamScoreRepository, UniversityExamScoreRepository>();
 
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
