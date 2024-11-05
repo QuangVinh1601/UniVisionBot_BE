@@ -26,5 +26,11 @@ namespace UniVisionBot.Controllers
             var result = await _universityExamScoreRepository.GetTiileBySearching(request);
             return Ok(result);
         }
+        [HttpGet("getscore")]
+        public async Task<IActionResult> GetScoreExamOfEachUniversityByYear([FromQuery] ScoreExamOfEachUniversityByYearRequest request)
+        {
+            var result = await _universityExamScoreRepository.GetExamScoreByYear(request);
+            return Ok(result);
+        }
     }
 }

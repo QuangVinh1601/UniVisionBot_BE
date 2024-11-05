@@ -377,5 +377,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
+    "Method": "GetScoreExamOfEachUniversityByYear",
+    "RelativePath": "api/UniversityExamScore/getscore",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Year",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UniversityCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

@@ -31,7 +31,7 @@ namespace UniVisionBot.DTOs.Major
 
         [Required(ErrorMessage = "MajorCode is required")]
         [StringLength(10, ErrorMessage = "MajorCode cannot exceed 10 characters")]
-        public string MajorCode { get; set; }
+        public List<string> MajorCode { get; set; }
 
         [Required(ErrorMessage = "SubjectCombinations are required")]
         public List<string> SubjectCombinations { get; set; }

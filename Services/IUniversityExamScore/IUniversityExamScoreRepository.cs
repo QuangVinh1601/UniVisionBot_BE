@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using UniVisionBot.Controllers;
 using UniVisionBot.DTOs.UniversityExamScore;
 
 namespace UniVisionBot.Services.IUniversityExamScore
@@ -7,5 +8,6 @@ namespace UniVisionBot.Services.IUniversityExamScore
     {
         Task<List<UniversityExamScoreResponse>> GetTitle();
         Task<List<UniversityExamScoreResponse>> GetTiileBySearching(UniversityExamScoreRequest request);
+        Task<ScoreExamOfEachUniversityByYearResponse>  GetExamScoreByYear(ScoreExamOfEachUniversityByYearRequest request);
     }
 }
