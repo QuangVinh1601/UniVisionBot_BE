@@ -3,20 +3,52 @@
   "WorkspaceRootPath": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\repositories\\universityexamscore\\universityexamscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:repositories\\universityexamscore\\universityexamscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\universityexamscore\\universityexamscoreresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\universityexamscore\\universityexamscoreresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\major.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\major.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\major\\majorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\major\\majorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\suggesteduniversities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\suggesteduniversities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\universityexamscore\\universityexamscorerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\universityexamscore\\universityexamscorerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\major\\majorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\major\\majorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\major\\majorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\major\\majorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\faculty\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\faculty\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\area\\admin\\controllers\\majorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:area\\admin\\controllers\\majorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\controllers\\universityexamscorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:controllers\\universityexamscorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\repositories\\major\\majorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:services\\iuniversityexamscore\\iuniversityexamscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\repositories\\universityexamscore\\universityexamscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:repositories\\universityexamscore\\universityexamscorerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\faculty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\faculty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,24 +71,8 @@
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\quizresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\universityexamscore\\universityexamscorerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\universityexamscore\\universityexamscorerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\faculty\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\faculty\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\area\\admin\\controllers\\universitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:area\\admin\\controllers\\universitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\controllers\\universityexamscorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:controllers\\universityexamscorecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\universityexamscore\\universityexamscoreresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\universityexamscore\\universityexamscoreresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\middlewares\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,20 +123,12 @@
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\university.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\suggesteduniversities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\suggesteduniversities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\dtos\\faculty\\facultyresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:dtos\\faculty\\facultyresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\helpers\\pagination\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:helpers\\pagination\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\chatlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -152,10 +156,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\userpreference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\userpreference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|solutionrelative:models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C55710F4-30F1-4CE2-B102-37AC47A9B76B}|UniVisionBot.csproj|d:\\univisionbot_cap1\\univisionbot_be\\univisionbot\\models\\consultant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -263,23 +263,141 @@
         },
         {
           "DockedWidth": 288,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Major.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Major.cs",
+              "RelativeDocumentMoniker": "Models\\Major.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Major.cs",
+              "RelativeToolTip": "Models\\Major.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T08:47:59.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UniversityExamScoreRequest.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
+              "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T06:33:48.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UniversityExamScoreResponse.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
+              "RelativeDocumentMoniker": "DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
+              "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:40:13.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SuggestedUniversities.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\SuggestedUniversities.cs",
+              "RelativeDocumentMoniker": "Models\\SuggestedUniversities.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\SuggestedUniversities.cs",
+              "RelativeToolTip": "Models\\SuggestedUniversities.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T08:51:52.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UniversityExamScoreRepository.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
+              "RelativeToolTip": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAtwGwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T10:38:10.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MajorRequest.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\Major\\MajorRequest.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorRequest.cs",
+              "RelativeToolTip": "DTOs\\Major\\MajorRequest.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T08:35:34.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Quiz.cs",
+              "RelativeDocumentMoniker": "Models\\Quiz.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Quiz.cs",
+              "RelativeToolTip": "Models\\Quiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T08:46:04.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Review.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "Models\\Review.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Review.cs",
+              "RelativeToolTip": "Models\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T08:49:18.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MajorResponse.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\Major\\MajorResponse.cs",
               "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorResponse.cs",
               "RelativeToolTip": "DTOs\\Major\\MajorResponse.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T08:35:48.366Z"
+              "WhenOpened": "2024-11-01T08:35:48.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
+              "Title": "FacultyRequest.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Faculty\\FacultyRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\Faculty\\FacultyRequest.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Faculty\\FacultyRequest.cs",
+              "RelativeToolTip": "DTOs\\Faculty\\FacultyRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T12:55:45.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MajorController.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Area\\Admin\\Controllers\\MajorController.cs",
               "RelativeDocumentMoniker": "Area\\Admin\\Controllers\\MajorController.cs",
@@ -287,11 +405,12 @@
               "RelativeToolTip": "Area\\Admin\\Controllers\\MajorController.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAhwBoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T07:46:02.894Z"
+              "WhenOpened": "2024-11-01T07:46:02.894Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "MajorRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\Major\\MajorRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Major\\MajorRepository.cs",
@@ -303,56 +422,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UniversityExamScoreRepository.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
-              "RelativeToolTip": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAGwAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "UniversityExamScoreController.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Controllers\\UniversityExamScoreController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UniversityExamScoreController.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Controllers\\UniversityExamScoreController.cs",
+              "RelativeToolTip": "Controllers\\UniversityExamScoreController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswB8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:38:10.619Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUniversityExamScoreRepository.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
-              "RelativeDocumentMoniker": "Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
-              "RelativeToolTip": "Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:38:28.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MajorRequest.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorRequest.cs",
-              "RelativeDocumentMoniker": "DTOs\\Major\\MajorRequest.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Major\\MajorRequest.cs",
-              "RelativeToolTip": "DTOs\\Major\\MajorRequest.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAADwvyUAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T08:35:34.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Major.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Major.cs",
-              "RelativeDocumentMoniker": "Models\\Major.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Major.cs",
-              "RelativeToolTip": "Models\\Major.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAgwCIAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:47:59.977Z",
+              "WhenOpened": "2024-11-03T10:33:36.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "Faculty.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Faculty.cs",
               "RelativeDocumentMoniker": "Models\\Faculty.cs",
@@ -364,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "QuizResult.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\QuizResult.cs",
               "RelativeDocumentMoniker": "Models\\QuizResult.cs",
@@ -376,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "IMajorRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\Major\\IMajorRepository.cs",
               "RelativeDocumentMoniker": "Services\\Major\\IMajorRepository.cs",
@@ -388,43 +471,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UniversityExamScoreController.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Controllers\\UniversityExamScoreController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UniversityExamScoreController.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Controllers\\UniversityExamScoreController.cs",
-              "RelativeToolTip": "Controllers\\UniversityExamScoreController.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAswB8AAAAMAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "IUniversityExamScoreRepository.cs",
+              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
+              "RelativeDocumentMoniker": "Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
+              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
+              "RelativeToolTip": "Services\\IUniversityExamScore\\IUniversityExamScoreRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:33:36.793Z"
+              "WhenOpened": "2024-11-03T10:38:28.375Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UniversityExamScoreRequest.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
-              "RelativeDocumentMoniker": "DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
-              "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T06:33:48.744Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FacultyRequest.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Faculty\\FacultyRequest.cs",
-              "RelativeDocumentMoniker": "DTOs\\Faculty\\FacultyRequest.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Faculty\\FacultyRequest.cs",
-              "RelativeToolTip": "DTOs\\Faculty\\FacultyRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T12:55:45.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "UniversityController.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Area\\Admin\\Controllers\\UniversityController.cs",
               "RelativeDocumentMoniker": "Area\\Admin\\Controllers\\UniversityController.cs",
@@ -436,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "GlobalExceptionHandler.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Middlewares\\GlobalExceptionHandler.cs",
               "RelativeDocumentMoniker": "Middlewares\\GlobalExceptionHandler.cs",
@@ -448,19 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UniversityExamScoreResponse.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
-              "RelativeDocumentMoniker": "DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
-              "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:40:13.396Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -472,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "IUniversityRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\University\\IUniversityRepository.cs",
               "RelativeDocumentMoniker": "Services\\University\\IUniversityRepository.cs",
@@ -484,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "ILoginRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\Login\\ILoginRepository.cs",
               "RelativeDocumentMoniker": "Services\\Login\\ILoginRepository.cs",
@@ -496,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "IFacultyRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Services\\Faculty\\IFacultyRepository.cs",
               "RelativeDocumentMoniker": "Services\\Faculty\\IFacultyRepository.cs",
@@ -508,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "UniversityRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\University\\UniversityRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\University\\UniversityRepository.cs",
@@ -516,11 +563,12 @@
               "RelativeToolTip": "Repositories\\University\\UniversityRepository.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAAADUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T07:12:43.765Z"
+              "WhenOpened": "2024-11-01T07:12:43.765Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "LoginRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\Login\\LoginRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Login\\LoginRepository.cs",
@@ -532,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "FacultyRepository.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\Faculty\\FacultyRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Faculty\\FacultyRepository.cs",
@@ -544,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "FacultyController.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Area\\Admin\\Controllers\\FacultyController.cs",
               "RelativeDocumentMoniker": "Area\\Admin\\Controllers\\FacultyController.cs",
@@ -556,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "UniversityResponse.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\University\\UniversityResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\University\\UniversityResponse.cs",
@@ -568,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "UniversityRequest.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\University\\UniversityRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\University\\UniversityRequest.cs",
@@ -580,19 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "SuggestedUniversities.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\SuggestedUniversities.cs",
-              "RelativeDocumentMoniker": "Models\\SuggestedUniversities.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\SuggestedUniversities.cs",
-              "RelativeToolTip": "Models\\SuggestedUniversities.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:51:52.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "University.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\University.cs",
               "RelativeDocumentMoniker": "Models\\University.cs",
@@ -604,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "FacultyResponse.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Faculty\\FacultyResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\Faculty\\FacultyResponse.cs",
@@ -616,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "PaginatedList.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Helpers\\Pagination\\PaginatedList.cs",
               "RelativeDocumentMoniker": "Helpers\\Pagination\\PaginatedList.cs",
@@ -628,19 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Quiz.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Quiz.cs",
-              "RelativeDocumentMoniker": "Models\\Quiz.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Quiz.cs",
-              "RelativeToolTip": "Models\\Quiz.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:46:04.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "ChatLog.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\ChatLog.cs",
               "RelativeDocumentMoniker": "Models\\ChatLog.cs",
@@ -652,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\DTOs\\Login\\LoginRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Login\\LoginRequest.cs",
@@ -664,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "AppRole.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\AppRole.cs",
               "RelativeDocumentMoniker": "Models\\AppRole.cs",
@@ -676,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "AppUser.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\AppUser.cs",
               "RelativeDocumentMoniker": "Models\\AppUser.cs",
@@ -688,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "CareerPath.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\CareerPath.cs",
               "RelativeDocumentMoniker": "Models\\CareerPath.cs",
@@ -700,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "MajorController.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\AppData\\Local\\SourceServer\\25ad1dbad31c6b7117df277def017a3126645343c15068865fe131df385c9a7c\\Area\\Admin\\Controllers\\MajorController.cs",
               "ToolTip": "C:\\Users\\nguye\\AppData\\Local\\SourceServer\\25ad1dbad31c6b7117df277def017a3126645343c15068865fe131df385c9a7c\\Area\\Admin\\Controllers\\MajorController.cs [Read Only]",
@@ -708,18 +732,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-02T16:13:49.583Z",
               "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Review.cs",
-              "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Review.cs",
-              "RelativeDocumentMoniker": "Models\\Review.cs",
-              "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\Review.cs",
-              "RelativeToolTip": "Models\\Review.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:49:18.034Z"
             },
             {
               "$type": "Document",
@@ -735,7 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "UserPreference.cs",
               "DocumentMoniker": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Models\\UserPreference.cs",
               "RelativeDocumentMoniker": "Models\\UserPreference.cs",

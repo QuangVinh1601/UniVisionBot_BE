@@ -99,8 +99,8 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                     MajorName = m["name"].AsString,
                     MajorCode = m["major_code"].AsString,
                     SubjectCombinations = m["subject_combinations"].AsBsonArray.Select(s => s.AsString).ToList(),
-                    EntryScoreExam = m["entryScoreExam"].AsInt32,
-                    EntryScoreRecord = m["entryScoreRecord"].AsInt32,
+                    EntryScoreExam = m["entryScoreExam"].AsString,
+                    EntryScoreRecord = m["entryScoreRecord"].AsString,
                     Notes = m["notes"].AsString
                 })).ToList()
             };
@@ -186,7 +186,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                     { "university_code", "$university_info.university_code" },
                     { "title", new BsonDocument("$concat", new BsonArray
                         {
-                            "Điểm chuẩn năm 2023 - ",
+                            "Điểm chuẩn năm 2024 - ",
                             "$university_info.university_code"," - ",
                             "$university_info.name"
                         })
@@ -200,7 +200,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             var response = result.Select(r => new UniversityExamScoreResponse
             {
                 Title = r["title"].AsString,
-                Year = "2023",
+                Year = "",
                 UniversityName = r["university_name"].AsString,
                 UniversityCode = r["university_code"].AsString
             }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();

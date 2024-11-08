@@ -20,8 +20,8 @@
         public string MajorName { get; set; }
         public string MajorCode { get; set; }
         public List<string> SubjectCombinations { get; set; }
-        public int EntryScoreExam { get; set; }
-        public int EntryScoreRecord { get; set; }
+        public string EntryScoreExam { get; set; }
+        public string EntryScoreRecord { get; set; }
         public string Notes { get; set; }
     }
 }
