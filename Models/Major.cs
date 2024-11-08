@@ -32,7 +32,7 @@ namespace UniVisionBot.Models
         public int Duration { get; set; } // Duration in years
 
         [BsonElement("major_code")]
-        public List<string> MajorCode { get; set; } // Mã ngành
+        public string MajorCode { get; set; } // Mã ngành
 
         [BsonElement("subject_combinations")]
         public List<string> SubjectCombinations { get; set; } // Danh sách mã tổ hợp môn

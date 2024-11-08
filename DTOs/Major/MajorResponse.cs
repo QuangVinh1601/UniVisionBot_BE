@@ -9,7 +9,7 @@
         public string Description { get; set; }
         public string Level { get; set; }
         public int Duration { get; set; }
-        public List<string> MajorCode { get; set; }
+        public string MajorCode { get; set; }
         public List<string> SubjectCombinations { get; set; }
 
         public Dictionary<string, int> EntryScoreExam { get; set; }

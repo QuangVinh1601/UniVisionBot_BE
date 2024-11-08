@@ -29,6 +29,7 @@ namespace UniVisionBot.Area.Admin.Controllers
                 Description = model.Description,
                 Name = model.Name,
                 Location = model.Location,
+                UniversityCode = model.UniversityCode,
                 ScholarshipsAvailable = model.ScholarshipsAvailable,
             };
             await _universityRepository.CreateAsync(university);

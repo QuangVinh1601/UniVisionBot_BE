@@ -106,7 +106,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             };
 
             return response;
-        }
+            }
         public async Task<List<UniversityExamScoreResponse>> GetTiileBySearching(UniversityExamScoreRequest request)
         {
 
