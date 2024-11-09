@@ -200,7 +200,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             var response = result.Select(r => new UniversityExamScoreResponse
             {
                 Title = r["title"].AsString,
-                Year = "",
+                Year = "2024",
                 UniversityName = r["university_name"].AsString,
                 UniversityCode = r["university_code"].AsString
             }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();

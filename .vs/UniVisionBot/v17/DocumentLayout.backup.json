@@ -275,8 +275,7 @@
               "RelativeToolTip": "Models\\Major.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:47:59.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T08:47:59.977Z"
             },
             {
               "$type": "Document",
@@ -288,8 +287,7 @@
               "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T06:33:48.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T06:33:48.744Z"
             },
             {
               "$type": "Document",
@@ -301,8 +299,7 @@
               "RelativeToolTip": "DTOs\\UniversityExamScore\\UniversityExamScoreResponse.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAxwBQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:40:13.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T10:40:13.396Z"
             },
             {
               "$type": "Document",
@@ -314,8 +311,7 @@
               "RelativeToolTip": "Models\\SuggestedUniversities.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:51:52.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T08:51:52.332Z"
             },
             {
               "$type": "Document",
@@ -325,7 +321,7 @@
               "RelativeDocumentMoniker": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
               "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
               "RelativeToolTip": "Repositories\\UniversityExamScore\\UniversityExamScoreRepository.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAtwGwAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAALAAAAAAAAAAAAAtwMoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T10:38:10.619Z",
               "EditorCaption": ""
@@ -340,8 +336,7 @@
               "RelativeToolTip": "DTOs\\Major\\MajorRequest.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAqwCkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T08:35:34.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T08:35:34.618Z"
             },
             {
               "$type": "Document",
@@ -353,8 +348,7 @@
               "RelativeToolTip": "Models\\Quiz.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:46:04.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T08:46:04.512Z"
             },
             {
               "$type": "Document",
@@ -366,8 +360,7 @@
               "RelativeToolTip": "Models\\Review.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:49:18.034Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T08:49:18.034Z"
             },
             {
               "$type": "Document",
@@ -379,8 +372,7 @@
               "RelativeToolTip": "DTOs\\Major\\MajorResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T08:35:48.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T08:35:48.366Z"
             },
             {
               "$type": "Document",
@@ -392,8 +384,7 @@
               "RelativeToolTip": "DTOs\\Faculty\\FacultyRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T12:55:45.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T12:55:45.632Z"
             },
             {
               "$type": "Document",
@@ -430,8 +421,7 @@
               "RelativeToolTip": "Controllers\\UniversityExamScoreController.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAswB8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:33:36.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T10:33:36.793Z"
             },
             {
               "$type": "Document",
