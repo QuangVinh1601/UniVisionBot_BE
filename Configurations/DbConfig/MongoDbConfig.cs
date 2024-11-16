@@ -18,5 +18,7 @@
         public string SuggestedUniversititesCollectionName { get; set; }
         public string UniversityCollectionName { get; set; }
         public string UserPreferenceCollectionName { get; set; }
+        public string ConversationCollectionName { get; set; }
+        public string MessageCollectionName { get; set; }
     }
 }

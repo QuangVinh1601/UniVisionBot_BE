@@ -25,6 +25,8 @@ using UniVisionBot.Services.Major;
 using UniVisionBot.Repositories.MajorRepository;
 using UniVisionBot.Services.IUniversityExamScore;
 using UniVisionBot.Repositories.UniversityExamScore;
+using UniVisionBot.Services.Chat;
+using UniVisionBot.Repositories.Chat;
 
 namespace UniVisionBot
 {
@@ -48,6 +50,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
             builder.Services.AddScoped<IMajorRepository, MajorRepository>();
             builder.Services.AddScoped<IUniversityExamScoreRepository, UniversityExamScoreRepository>();
+            builder.Services.AddScoped<IChatRepository, ChatRepository>();
 
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
@@ -115,9 +118,6 @@ namespace UniVisionBot
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-
-
 
             var app = builder.Build();
 
