@@ -9,6 +9,7 @@ namespace UniVisionBot.Profiles
         public ChatProfile()
         {
             CreateMap<Message, MessageResponse>();
+            CreateMap<MessageRequest, Message>();
             CreateMap<Conversation, ConversationResponse>();
             CreateMap<AppUser, UserResponse>();
         }

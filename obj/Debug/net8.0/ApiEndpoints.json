@@ -1,5 +1,69 @@
 [
   {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "CreateConversation",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Chat.ConversationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "GetHistoryMessageForParticularUser",
+    "RelativePath": "api/Chat/api/conversation/history/{conversationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conversationId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "GetConversationForUser",
+    "RelativePath": "api/Chat/api/conversation/user/{currentUserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "currentUserId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "GetAllConversationForConsultant",
+    "RelativePath": "api/Chat/api/conversations/{consultantId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consultantId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "Create",
     "RelativePath": "api/faculties/{facultyId}/major",

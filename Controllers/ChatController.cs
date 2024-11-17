@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UniVisionBot.DTOs.Chat;
 using UniVisionBot.Services.Chat;
 
 namespace UniVisionBot.Controllers
@@ -32,6 +33,12 @@ namespace UniVisionBot.Controllers
         {
             var historyMessage = await _chatRepository.GetHistoryMessage(conversationId);
             return Ok(historyMessage);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateConversation(ConversationRequest request)
+        {
+            var conversationId = await  _chatRepository.CreateConversation(request);
+            return Ok(conversationId);
         }
     }
 }

@@ -7,10 +7,11 @@ using UniVisionBot.DTOs.Chat;
 using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
 using UniVisionBot.Services.Chat;
+using UniVisionBot.Services.ChatHub;
 
 namespace UniVisionBot.Repositories.Chat
 {
-    public class ChatRepository : IChatRepository
+    public class ChatRepository: IChatRepository
     {
         private readonly IMongoCollection<Message> _messageCollection;
         private readonly IMongoCollection<Conversation> _conversationCollection;
@@ -56,12 +57,12 @@ namespace UniVisionBot.Repositories.Chat
             }
             var filterConversation = Builders<Conversation>.Filter.Eq(m => m.UserId, currentUserId);
             var conversation = _conversationCollection.Find(filterConversation).FirstOrDefault();
-            if(conversation == null)
+            if (conversation == null)
             {
                 throw new NotFoundException("Conversation is not existed");
             }
             var messageList = await _messageCollection.Find(m => m.ConversationId == conversation.Id).ToListAsync();
-            if(messageList == null)
+            if (messageList == null)
             {
                 throw new NotFoundException("Message list is not found");
             }
@@ -99,5 +100,31 @@ namespace UniVisionBot.Repositories.Chat
             conversationMap.User = userMap;
             return conversationMap;
         }
+        public async Task<string> CreateConversation(ConversationRequest request)
+        {
+            if (!ObjectId.TryParse(request.ConsultantId, out var consultantId))
+            {
+                throw new BadInputException("Invalid format");
+            }
+            if (!ObjectId.TryParse(request.UserId, out ObjectId userId))
+            {
+                throw new BadInputException("Invalid format");
+            }
+            var conversation = _conversationCollection.Find(c => c.UserId == request.UserId && c.ConsultantId == request.ConsultantId).FirstOrDefault();
+            if (conversation == null)
+            {
+                var newConversation = new Conversation
+                {
+                    Id = ObjectId.GenerateNewId().ToString(),
+                    UserId = request.UserId,
+                    ConsultantId = request.ConsultantId,
+                    CreateAt = DateTime.UtcNow,
+                };
+                await _conversationCollection.InsertOneAsync(newConversation);
+                return newConversation.Id;
+            }
+            return conversation.Id;
+        }
+
     }
 }

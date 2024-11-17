@@ -27,6 +27,8 @@ using UniVisionBot.Services.IUniversityExamScore;
 using UniVisionBot.Repositories.UniversityExamScore;
 using UniVisionBot.Services.Chat;
 using UniVisionBot.Repositories.Chat;
+using UniVisionBot.Services.ChatHub;
+using UniVisionBot.Repositories.ChatHub;
 
 namespace UniVisionBot
 {
@@ -51,6 +53,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<IMajorRepository, MajorRepository>();
             builder.Services.AddScoped<IUniversityExamScoreRepository, UniversityExamScoreRepository>();
             builder.Services.AddScoped<IChatRepository, ChatRepository>();
+            builder.Services.AddScoped<IChatHubRepository, ChatHubRepository>();
 
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
