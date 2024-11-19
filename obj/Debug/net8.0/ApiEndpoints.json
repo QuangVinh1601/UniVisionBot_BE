@@ -2,7 +2,7 @@
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "CreateConversation",
-    "RelativePath": "api/Chat",
+    "RelativePath": "api/conversations",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -17,14 +17,14 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
-    "Method": "GetHistoryMessageForParticularUser",
-    "RelativePath": "api/Chat/api/conversation/history/{conversationId}",
+    "Method": "GetAllConversationForConsultant",
+    "RelativePath": "api/conversations/{consultantId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "conversationId",
+        "Name": "consultantId",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -34,7 +34,7 @@
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "GetConversationForUser",
-    "RelativePath": "api/Chat/api/conversation/user/{currentUserId}",
+    "RelativePath": "api/conversations/current/{currentUserId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -49,18 +49,28 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
-    "Method": "GetAllConversationForConsultant",
-    "RelativePath": "api/Chat/api/conversations/{consultantId}",
+    "Method": "GetHistoryMessageForParticularUser",
+    "RelativePath": "api/conversations/history/{conversationId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "consultantId",
+        "Name": "conversationId",
         "Type": "System.String",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.DiagnoseController",
+    "Method": "CheckChatStatus",
+    "RelativePath": "api/diagnostics/chat-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

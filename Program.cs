@@ -29,6 +29,8 @@ using UniVisionBot.Services.Chat;
 using UniVisionBot.Repositories.Chat;
 using UniVisionBot.Services.ChatHub;
 using UniVisionBot.Repositories.ChatHub;
+using UniVisionBot.Hubs;
+using System.Text.Json.Serialization;
 
 namespace UniVisionBot
 {
@@ -42,7 +44,16 @@ namespace UniVisionBot
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(MongoDB.Bson.BsonType.String));
 
             var configuration = builder.Configuration;
-            builder.Services.AddCors();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("SignalRPolicy", policy =>
+                {
+                    policy.AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .SetIsOriginAllowed(origin => true) // Trong production nên specify domain cụ thể
+                          .AllowCredentials();
+                });
+            });
             builder.Services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
 
             builder.Services.Configure<MyDatabase>(configuration.GetSection("MyDatabase"));
@@ -87,7 +98,7 @@ namespace UniVisionBot
                 }
             };
 
-            builder.Services.ConfigureMongoDbIdentity<AppUser, AppRole, ObjectId>(mongoDbIdentityConfig)
+            builder.Services.ConfigureMongoDbIdentity<AppUser,AppRole,ObjectId>(mongoDbIdentityConfig)
             .AddUserManager<UserManager<AppUser>>()
             .AddSignInManager<SignInManager<AppUser>>()
             .AddRoleManager<RoleManager<AppRole>>()
@@ -115,12 +126,22 @@ namespace UniVisionBot
 
                 };
             });
-
+            builder.Services.AddSignalR(options =>
+            {
+                options.EnableDetailedErrors = true;
+            }).AddJsonProtocol(options =>
+            {
+                // Giữ nguyên casing của property names
+                options.PayloadSerializerOptions.PropertyNamingPolicy = null;
+                // Cấu hình DateTime serialization
+                options.PayloadSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
             // Add services to the container.
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+          
 
             var app = builder.Build();
 
@@ -132,12 +153,7 @@ namespace UniVisionBot
             }
             app.UseHttpsRedirection();
 
-            app.UseCors(options => options
-                .WithOrigins(new[] { "http://localhost:3000", "http://localhost:8080", "http://localhost:4200" })
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials()
-            );
+            app.UseCors("SignalRPolicy");
 
             app.UseExceptionHandler();
 
@@ -146,6 +162,7 @@ namespace UniVisionBot
 
 
             app.MapControllers();
+            app.MapHub<ChatHub>("/chatHub");
 
             app.Run();
         }

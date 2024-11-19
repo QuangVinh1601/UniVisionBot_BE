@@ -4,6 +4,6 @@ namespace UniVisionBot.Services.ChatHub
 {
     public interface IChatHubRepository
     {
-        Task SaveMessage(MessageRequest request);
+        Task<MessageResponse> SaveMessage(MessageRequest request);
     }
 }

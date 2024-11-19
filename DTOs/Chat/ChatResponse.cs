@@ -8,7 +8,7 @@ namespace UniVisionBot.DTOs.Chat
         public string Id { get; set; }
         public string UserId { get; set; }
         public string ConsultantId { get; set; }
-        public DateTime createAt { get; set; }
+        public DateTime Created_At { get; set; }
         public List<MessageResponse> Messages { get; set; }
         public UserResponse User { get; set; }
         public string? LastMessage { get; set; }
@@ -21,6 +21,7 @@ namespace UniVisionBot.DTOs.Chat
     }
     public class MessageResponse
     {
+        public string Id { get; set; }
         public string Content { get; set; }
         public string ConversationId { get; set; }
         public string SenderId { get; set; }
@@ -35,7 +36,6 @@ namespace UniVisionBot.DTOs.Chat
         public string SenderId { get; set; }
         public string ReceiverId { get; set; }
         public StatusChatEnum Status { get; set; }
-        public DateTime Created_At { get; set; }
     }
     public class ConversationRequest
     {

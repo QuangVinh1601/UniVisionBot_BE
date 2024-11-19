@@ -14,7 +14,7 @@ namespace UniVisionBot.Models
         [BsonElement("user_Id")]
         public string UserId { get; set; }
         [BsonElement("created_at")]
-        public DateTime CreateAt { get; set; }
+        public DateTime Created_At { get; set; }
 
     }
 }

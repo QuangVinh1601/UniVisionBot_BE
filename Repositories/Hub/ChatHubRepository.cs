@@ -23,17 +23,22 @@ namespace UniVisionBot.Repositories.ChatHub
             var databaseName = connnectionString.GetDatabase(_options.Value.DatabaseName);
             _conversationCollection = databaseName.GetCollection<Conversation>(_options.Value.ConversationCollectionName);
             _messageCollection = databaseName.GetCollection<Message>(_options.Value.MessageCollectionName);
+            _mapper = mapper;
         }
-      
-        public async Task SaveMessage(MessageRequest request)
+
+        public async Task<MessageResponse> SaveMessage(MessageRequest request)
         {
             var conversation = _conversationCollection.Find(c => c.Id == request.ConversationId).FirstOrDefault();
             if(conversation == null)
             {
                 throw new NotFoundException("Cannot find the conversation");
             }
-            var messageMap = _mapper.Map<MessageRequest, Message>(request);
-            await _messageCollection.InsertOneAsync(messageMap);
+            var messageMap = _mapper.Map<MessageRequest, MessageResponse>(request);
+            messageMap.Id = ObjectId.GenerateNewId().ToString();
+            messageMap.Created_At = DateTime.UtcNow;
+            var messageResponseMap = _mapper.Map<MessageResponse, Message>(messageMap);
+            await _messageCollection.InsertOneAsync(messageResponseMap);
+            return messageMap;
         }
     }
 }

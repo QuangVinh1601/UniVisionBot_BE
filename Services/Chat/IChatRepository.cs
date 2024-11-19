@@ -8,6 +8,5 @@ namespace UniVisionBot.Services.Chat
         Task<ConversationResponse> GetConversationForCurrentUser(string currentUserId);
         Task<ConversationResponse> GetHistoryMessage(string conversationId);
         Task<string> CreateConversation(ConversationRequest request);
-
     }
 }

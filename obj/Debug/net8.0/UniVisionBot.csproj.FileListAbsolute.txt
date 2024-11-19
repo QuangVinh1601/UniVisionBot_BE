@@ -258,10 +258,4 @@ D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\obj\Debug\net8.0\UniVisionBot.
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\obj\Debug\net8.0\ref\UniVisionBot.dll
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\System.IO.Pipelines.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\System.Text.Encodings.Web.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\System.Text.Json.dll
-D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

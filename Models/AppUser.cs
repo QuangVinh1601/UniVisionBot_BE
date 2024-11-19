@@ -7,7 +7,6 @@ namespace UniVisionBot.Models
 {
     public class AppUser : MongoIdentityUser<ObjectId>
     {
-        public override ObjectId Id { get; set; }
 
         public string? FullName { get; set; }   
         public string? UrlImage { get; set; }

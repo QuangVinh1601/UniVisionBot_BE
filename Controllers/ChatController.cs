@@ -5,7 +5,7 @@ using UniVisionBot.Services.Chat;
 
 namespace UniVisionBot.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/conversations")]
     [ApiController]
     public class ChatController : ControllerBase
     {
@@ -15,21 +15,21 @@ namespace UniVisionBot.Controllers
             _chatRepository = chatRepository;
         }
 
-        [HttpGet("api/conversation/user/{currentUserId}")]
+        [HttpGet("current/{currentUserId}")]
         public async Task<IActionResult> GetConversationForUser(string currentUserId)
         {
             var conversation = await _chatRepository.GetConversationForCurrentUser(currentUserId);
             return Ok(conversation);
         }
 
-        [HttpGet("api/conversations/{consultantId}")]
-        public async Task<IActionResult> GetAllConversationForConsultant(string consultantId)
+        [HttpGet("{consultantId}")] //consultant
+        public async Task<IActionResult> GetAllConversationForConsultant(string consultantId) // consultantId
         {
             var conversation = await _chatRepository.GetAllConversationForConsultant(consultantId);
             return Ok(conversation);
         }
-        [HttpGet("api/conversation/history/{conversationId}")]
-        public async Task<IActionResult> GetHistoryMessageForParticularUser (string conversationId)
+        [HttpGet("history/{conversationId}")]
+        public async Task<IActionResult> GetHistoryMessageForParticularUser(string conversationId)
         {
             var historyMessage = await _chatRepository.GetHistoryMessage(conversationId);
             return Ok(historyMessage);
@@ -37,8 +37,10 @@ namespace UniVisionBot.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateConversation(ConversationRequest request)
         {
-            var conversationId = await  _chatRepository.CreateConversation(request);
+            var conversationId = await _chatRepository.CreateConversation(request);
             return Ok(conversationId);
         }
+
+
     }
 }

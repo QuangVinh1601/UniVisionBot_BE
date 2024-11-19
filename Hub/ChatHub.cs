@@ -17,13 +17,15 @@ namespace UniVisionBot.Hubs
         private readonly IChatHubRepository _chatHubRepository;
         private readonly IMongoCollection<Conversation> _conversationCollection;
         private readonly IOptions<MyDatabase> _options;
-        public ChatHub(IChatHubRepository chatHubRepository, IOptions<MyDatabase> options)
+        private readonly ILogger<ChatHub> _logger;
+        public ChatHub(IChatHubRepository chatHubRepository, IOptions<MyDatabase> options, ILogger<ChatHub> logger)
         {
             _chatHubRepository = chatHubRepository;
             _options = options;
             var connnectionString = new MongoClient(_options.Value.ConnectionString);
             var databaseName = connnectionString.GetDatabase(_options.Value.DatabaseName);
             _conversationCollection = databaseName.GetCollection<Conversation>(_options.Value.ConversationCollectionName);
+            _logger = logger;
         }
         public async Task JoinConversation(string conversationId)
         {
@@ -31,8 +33,31 @@ namespace UniVisionBot.Hubs
         }
         public async Task SendMessage(MessageRequest request)
         {
-            await _chatHubRepository.SaveMessage(request);
-            await Clients.Group(request.ConversationId).SendAsync("ReceiveMessage", request);
+            try
+            {
+                _logger.LogInformation($"Received message request: {System.Text.Json.JsonSerializer.Serialize(request)}");
+
+                // Validate request
+                if (string.IsNullOrEmpty(request.ConversationId) ||
+                    string.IsNullOrEmpty(request.SenderId) ||
+                    string.IsNullOrEmpty(request.Content))
+                {
+                    _logger.LogError("Invalid message request - missing required fields");
+                    throw new ArgumentException("Invalid message request");
+                }
+                // Ensure Created_At is set if not provided
+
+                var response = await _chatHubRepository.SaveMessage(request);
+                await Clients.Group(request.ConversationId).SendAsync("ReceiveMessage", response);
+
+                _logger.LogInformation($"Message sent successfully to conversation {request.ConversationId}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in SendMessage: {ex}");
+                throw;
+            }
         }
+        
     }
 }

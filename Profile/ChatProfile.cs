@@ -10,6 +10,8 @@ namespace UniVisionBot.Profiles
         {
             CreateMap<Message, MessageResponse>();
             CreateMap<MessageRequest, Message>();
+            CreateMap<MessageResponse, Message>();
+            CreateMap<MessageRequest, MessageResponse>();
             CreateMap<Conversation, ConversationResponse>();
             CreateMap<AppUser, UserResponse>();
         }

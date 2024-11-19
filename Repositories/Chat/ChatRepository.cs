@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -30,7 +31,7 @@ namespace UniVisionBot.Repositories.Chat
         }
         public async Task<List<ConversationResponse>> GetAllConversationForConsultant(string consultantId)
         {
-            if (ObjectId.TryParse(consultantId, out ObjectId objectConsultantId))
+            if (!ObjectId.TryParse(consultantId, out ObjectId objectConsultantId))
             {
                 throw new BadInputException("Invalid format");
             }
@@ -39,16 +40,20 @@ namespace UniVisionBot.Repositories.Chat
             var conversationListResponse = new List<ConversationResponse>();
             foreach (var conversation in conversationlist)
             {
-                var user = _appUserCollection.Find(u => u.Id.ToString() == conversation.UserId).FirstOrDefault();
+                ObjectId.TryParse(conversation.UserId, out ObjectId objectUserId);
+                var filterUser = Builders<AppUser>.Filter.Eq("_id", objectUserId);
+                var user = await _appUserCollection.Find(filterUser).FirstOrDefaultAsync();
+
                 var latestMessage = (await _messageCollection.Find(m => m.ConversationId == conversation.Id).ToListAsync()).OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
                 var conversationmap = _mapper.Map<Conversation, ConversationResponse>(conversation);
                 var userMap = _mapper.Map<AppUser, UserResponse>(user);
                 conversationmap.LastMessage = latestMessage;
                 conversationmap.User = userMap;
                 conversationListResponse.Add(conversationmap);
-            }
+                }
             return conversationListResponse;
         }
+        //User side
         public async Task<ConversationResponse> GetConversationForCurrentUser(string currentUserId)
         {
             if (!ObjectId.TryParse(currentUserId, out ObjectId objectCurrentUserId))
@@ -72,9 +77,10 @@ namespace UniVisionBot.Repositories.Chat
             return conversationmap;
         }
 
+        // Consultant side
         public async Task<ConversationResponse> GetHistoryMessage(string conversationId)
         {
-            if (ObjectId.TryParse(conversationId, out ObjectId objectConversationId))
+            if (!ObjectId.TryParse(conversationId, out ObjectId objectConversationId))
             {
                 throw new BadInputException("Invalid format");
             }
@@ -83,7 +89,7 @@ namespace UniVisionBot.Repositories.Chat
             {
                 throw new NotFoundException("Cannot find conversation");
             }
-            var user = _appUserCollection.Find(u => u.Id.ToString() == conversation.UserId).FirstOrDefault();
+            var user = _appUserCollection.Find(u => u.Id == ObjectId.Parse(conversation.UserId)).FirstOrDefault();
             if (user == null)
             {
                 throw new NotFoundException("Cannot find user");
@@ -94,10 +100,12 @@ namespace UniVisionBot.Repositories.Chat
                 throw new NotFoundException("Cannot find any message for current conversation");
             }
             var userMap = _mapper.Map<AppUser, UserResponse>(user);
+
             var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
             var conversationMap = _mapper.Map<Conversation, ConversationResponse>(conversation);
             conversationMap.Messages = messageMap;
             conversationMap.User = userMap;
+            conversationMap.LastMessage = messageMap.OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
             return conversationMap;
         }
         public async Task<string> CreateConversation(ConversationRequest request)
@@ -118,7 +126,7 @@ namespace UniVisionBot.Repositories.Chat
                     Id = ObjectId.GenerateNewId().ToString(),
                     UserId = request.UserId,
                     ConsultantId = request.ConsultantId,
-                    CreateAt = DateTime.UtcNow,
+                    Created_At = DateTime.UtcNow,
                 };
                 await _conversationCollection.InsertOneAsync(newConversation);
                 return newConversation.Id;
@@ -126,5 +134,6 @@ namespace UniVisionBot.Repositories.Chat
             return conversation.Id;
         }
 
+      
     }
 }
