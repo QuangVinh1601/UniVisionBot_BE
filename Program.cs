@@ -36,6 +36,8 @@ using UniVisionBot.Repositories.Image;
 using UniVisionBot.Services.Article;
 using UniVisionBot.Repositories.Articles;
 using UniVisionBot.Configurations.CloudinaryConfig;
+using UniVisionBot.Services.Feedback;
+using UniVisionBot.Repositories.Feedbacks;
 
 namespace UniVisionBot
 {
@@ -72,6 +74,8 @@ namespace UniVisionBot
             builder.Services.AddScoped<IChatHubRepository, ChatHubRepository>();
             builder.Services.AddScoped<IImageRepository, ImageRepository>();
             builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+            builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+
             builder.Services.Configure<CloudinaryConfig>(configuration.GetSection("Cloudinary"));
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

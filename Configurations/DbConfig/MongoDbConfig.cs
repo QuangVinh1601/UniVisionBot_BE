@@ -14,7 +14,7 @@
         public string MajorCollectionName { get; set; }
         public string QuizCollectionName { get; set; }
         public string QuizResultCollectionName { get; set; }
-        public string ReviewCollectionName { get; set; }
+        public string FeedbackCollectionName { get; set; }
         public string SuggestedUniversititesCollectionName { get; set; }
         public string UniversityCollectionName { get; set; }
         public string UserPreferenceCollectionName { get; set; }
