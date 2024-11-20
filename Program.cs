@@ -31,6 +31,11 @@ using UniVisionBot.Services.ChatHub;
 using UniVisionBot.Repositories.ChatHub;
 using UniVisionBot.Hubs;
 using System.Text.Json.Serialization;
+using UniVisionBot.Services.Image;
+using UniVisionBot.Repositories.Image;
+using UniVisionBot.Services.Article;
+using UniVisionBot.Repositories.Articles;
+using UniVisionBot.Configurations.CloudinaryConfig;
 
 namespace UniVisionBot
 {
@@ -65,7 +70,9 @@ namespace UniVisionBot
             builder.Services.AddScoped<IUniversityExamScoreRepository, UniversityExamScoreRepository>();
             builder.Services.AddScoped<IChatRepository, ChatRepository>();
             builder.Services.AddScoped<IChatHubRepository, ChatHubRepository>();
-
+            builder.Services.AddScoped<IImageRepository, ImageRepository>();
+            builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+            builder.Services.Configure<CloudinaryConfig>(configuration.GetSection("Cloudinary"));
             builder.Services.AddProblemDetails();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 

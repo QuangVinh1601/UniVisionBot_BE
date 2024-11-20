@@ -20,5 +20,6 @@
         public string UserPreferenceCollectionName { get; set; }
         public string ConversationCollectionName { get; set; }
         public string MessageCollectionName { get; set; }
+        public string ArticleCollectionName { get; set; }
     }
 }

@@ -1,5 +1,114 @@
 [
   {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "Create",
+    "RelativePath": "api/Article",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Author",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "GetAllArticle",
+    "RelativePath": "api/Article",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "GetArticleById",
+    "RelativePath": "api/Article/{articleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "UpdateArticle",
+    "RelativePath": "api/Article/{articleId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Author",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "publicId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "DeleteArticleById",
+    "RelativePath": "api/Article/{articleId}/{publicId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "publicId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "CreateConversation",
     "RelativePath": "api/conversations",
