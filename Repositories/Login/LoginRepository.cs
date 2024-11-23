@@ -149,6 +149,7 @@ namespace UniVisionBot.Repositories.Login
                 Email = user.Email,
                 Success = true,
                 Message = "Login successfull",
+                FullName = user.FullName,
                 UserId = user.Id.ToString(),
             }; 
 
