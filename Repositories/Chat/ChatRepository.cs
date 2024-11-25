@@ -16,6 +16,7 @@ namespace UniVisionBot.Repositories.Chat
     {
         private readonly IMongoCollection<Message> _messageCollection;
         private readonly IMongoCollection<Conversation> _conversationCollection;
+        private readonly IMongoCollection<PendingConversation> _pendingConversationCollection;
         private readonly IMongoCollection<AppUser> _appUserCollection;
         private readonly IOptions<MyDatabase> _options;
         private readonly IMapper _mapper;
@@ -27,6 +28,7 @@ namespace UniVisionBot.Repositories.Chat
             _messageCollection = databaseName.GetCollection<Message>(_options.Value.MessageCollectionName);
             _conversationCollection = databaseName.GetCollection<Conversation>(_options.Value.ConversationCollectionName);
             _appUserCollection = databaseName.GetCollection<AppUser>(_options.Value.AppUsersCollectionName);
+            _pendingConversationCollection = databaseName.GetCollection<PendingConversation>(_options.Value.PendingConversationCollectionName);
             _mapper = mapper;
         }
         public async Task<List<ConversationResponse>> GetAllConversationForConsultant(string consultantId)
@@ -35,10 +37,13 @@ namespace UniVisionBot.Repositories.Chat
             {
                 throw new BadInputException("Invalid format");
             }
-            var filter = Builders<Conversation>.Filter.Eq(c => c.ConsultantId, consultantId);
-            var conversationlist = await _conversationCollection.Find(filter).ToListAsync();
+            //var filter = Builders<Conversation>.Filter.Eq(c => c.ConsultantId, consultantId);
+            //var conversationlist = await _conversationCollection.Find(filter).ToListAsync();
+            var pendingConversationList = await _pendingConversationCollection.Find(_ => true).ToListAsync();
+            var conversationList = await _conversationCollection.Find(_ => true).ToListAsync();
+            var conversationListExcludePending = conversationList.Where(c => !pendingConversationList.Any(pc => pc.conversationId == c.Id)).ToList();
             var conversationListResponse = new List<ConversationResponse>();
-            foreach (var conversation in conversationlist)
+            foreach (var conversation in conversationListExcludePending)
             {
                 ObjectId.TryParse(conversation.UserId, out ObjectId objectUserId);
                 var filterUser = Builders<AppUser>.Filter.Eq("_id", objectUserId);
@@ -134,6 +139,38 @@ namespace UniVisionBot.Repositories.Chat
             return conversation.Id;
         }
 
-      
+        public List<PendingConversationResponse> GetAllPendingConversation()
+        {
+            var pendingConversationList = _pendingConversationCollection.Find(_ => true).ToList().Select(pc => new PendingConversationResponse
+            {
+                Id = pc.Id,
+                ConversationId = pc.conversationId,
+                Status = pc.Status,
+                UserName = pc.UserName,
+                CreatedAt = pc.CreatedAt
+            }).ToList();
+            return pendingConversationList;
+        }
+
+        public async Task DeleteConversation(string conversationId)
+        {
+            await _conversationCollection.DeleteOneAsync(c => c.Id == conversationId);
+            await _pendingConversationCollection.DeleteOneAsync(c => c.conversationId == conversationId);
+        }
+
+        public PendingConversationResponse GetPendingConversation(PendingConversationRequest request)
+        {
+            var pendingConversation = _pendingConversationCollection.Find(pc => pc.conversationId == request.ConversationId).FirstOrDefault();
+            var pendingConvesationResponse = new PendingConversationResponse
+            {
+                Id = pendingConversation.Id,
+                UserName = pendingConversation.UserName,
+                ConversationId = pendingConversation.conversationId,
+                Status = pendingConversation.Status,
+                CreatedAt = pendingConversation.CreatedAt
+            };
+            return pendingConvesationResponse;
+
+        }
     }
 }

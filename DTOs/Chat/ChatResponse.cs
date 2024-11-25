@@ -42,4 +42,20 @@ namespace UniVisionBot.DTOs.Chat
         public string UserId { get; set; }
         public string ConsultantId { get; set; }
     }
+
+    public class PendingConversationResponse
+    {
+        public string Id { get; set; }
+        public string ConversationId { get; set; }
+        public string UserName { get; set; }
+        public string Status { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+    public class PendingConversationRequest
+    {
+        public string ConversationId { get; set; }
+        public string UserName { get; set; }
+        public string Status { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
 }

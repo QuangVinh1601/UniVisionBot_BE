@@ -18,6 +18,7 @@ namespace UniVisionBot.Hubs
         private readonly IMongoCollection<Conversation> _conversationCollection;
         private readonly IOptions<MyDatabase> _options;
         private readonly ILogger<ChatHub> _logger;
+        public static Dictionary<string, string> ConsultantConnection = new Dictionary<string, string>();
         public ChatHub(IChatHubRepository chatHubRepository, IOptions<MyDatabase> options, ILogger<ChatHub> logger)
         {
             _chatHubRepository = chatHubRepository;
@@ -27,6 +28,7 @@ namespace UniVisionBot.Hubs
             _conversationCollection = databaseName.GetCollection<Conversation>(_options.Value.ConversationCollectionName);
             _logger = logger;
         }
+        
         public async Task JoinConversation(string conversationId)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, conversationId);
@@ -57,6 +59,26 @@ namespace UniVisionBot.Hubs
                 _logger.LogError($"Error in SendMessage: {ex}");
                 throw;
             }
+        }
+        public async Task SetConsultantId(string consultantId)
+        {
+            if (!string.IsNullOrEmpty(consultantId))
+            {
+                ConsultantConnection[Context.ConnectionId] = consultantId;
+            }
+
+            await Task.CompletedTask;
+        }
+        public static string GetConsultantConnection(string consultantId)
+        {
+            foreach (var connection in ConsultantConnection)
+            {
+                if(connection.Value == consultantId)
+                {
+                    return connection.Key;
+                }
+            }
+            return null;
         }
         
     }

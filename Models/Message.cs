@@ -23,7 +23,7 @@ namespace UniVisionBot.Models
         public string ReceiverId { get; set; }
 
         [BsonElement("status")]
-        public StatusChatEnum Status = StatusChatEnum.SENT;
+            public StatusChatEnum Status = StatusChatEnum.SENT;
         [BsonElement("create_at")]
 
         public DateTime Created_At { get; set; }

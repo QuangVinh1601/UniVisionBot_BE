@@ -142,6 +142,43 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "NotifyNewPendingConversation",
+    "RelativePath": "api/conversations/{consultantId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "consultantId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Chat.PendingConversationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "DeleteConversation",
+    "RelativePath": "api/conversations/{conversationId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conversationId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "GetConversationForUser",
     "RelativePath": "api/conversations/current/{currentUserId}",
     "HttpMethod": "GET",
@@ -170,6 +207,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "GetAllPendingConversation",
+    "RelativePath": "api/conversations/pending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

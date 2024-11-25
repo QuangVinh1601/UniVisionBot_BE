@@ -21,5 +21,6 @@
         public string ConversationCollectionName { get; set; }
         public string MessageCollectionName { get; set; }
         public string ArticleCollectionName { get; set; }
+        public string PendingConversationCollectionName { get; set; }
     }
 }

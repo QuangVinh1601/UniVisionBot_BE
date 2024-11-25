@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using UniVisionBot.DTOs.Chat;
+using UniVisionBot.Hubs;
 using UniVisionBot.Services.Chat;
 
 namespace UniVisionBot.Controllers
@@ -10,10 +12,13 @@ namespace UniVisionBot.Controllers
     public class ChatController : ControllerBase
     {
         private readonly IChatRepository _chatRepository;
-        public ChatController(IChatRepository chatRepository)
+        private readonly IHubContext<ChatHub> _hubContext;
+        public ChatController(IChatRepository chatRepository, IHubContext<ChatHub> context)
         {
             _chatRepository = chatRepository;
+            _hubContext = context;
         }
+
 
         [HttpGet("current/{currentUserId}")]
         public async Task<IActionResult> GetConversationForUser(string currentUserId)
@@ -39,6 +44,26 @@ namespace UniVisionBot.Controllers
         {
             var conversationId = await _chatRepository.CreateConversation(request);
             return Ok(conversationId);
+        }
+        [HttpGet("pending")]
+        public IActionResult GetAllPendingConversation()
+        {
+            var result = _chatRepository.GetAllPendingConversation();
+            return Ok(result);  
+        }
+        [HttpDelete("{conversationId}")]
+        public async Task<IActionResult> DeleteConversation(string conversationId)
+        {
+            await _chatRepository.DeleteConversation(conversationId);
+            return Ok();
+        }
+        [HttpPost("{consultantId}")]
+        public async Task<IActionResult> NotifyNewPendingConversation(string consultantId ,[FromBody] PendingConversationRequest request)
+        {
+            var consultantConnectionId = ChatHub.GetConsultantConnection(consultantId);
+            var response = _chatRepository.GetPendingConversation(request);
+            await _hubContext.Clients.Client(consultantConnectionId).SendAsync("NofityPendingConversation", response);
+            return Ok();
         }
 
 
