@@ -17,7 +17,7 @@ namespace UniVisionBot.Models
 
         [BsonElement("career_ids")]
         [BsonRepresentation(BsonType.ObjectId)]
-        public List<string> CareerIds { get; set; } // Changed to a list of ObjectIds
+        public string CareerIds { get; set; } // Changed to a list of ObjectIds
 
         [BsonElement("name")]
         public string Name { get; set; }

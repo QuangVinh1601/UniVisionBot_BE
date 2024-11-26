@@ -1,10 +1,12 @@
-﻿namespace UniVisionBot.DTOs.Major
+﻿using MongoDB.Bson;
+
+namespace UniVisionBot.DTOs.Major
 {
     public class MajorResponse
     {
         public string Id { get; set; }
         public string FacultyId { get; set; }
-        public List<string> CareerIds { get; set; }
+        public string CareerIds { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Level { get; set; }
