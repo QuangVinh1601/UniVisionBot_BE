@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "GetAllMajorOfFaculty",
+    "RelativePath": "1234444",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "facultyId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
     "Method": "Create",
     "RelativePath": "api/Article",
@@ -232,7 +253,7 @@
   {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "Create",
-    "RelativePath": "api/faculties",
+    "RelativePath": "api/faculties/{facultyId}/major",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -241,48 +262,11 @@
         "Name": "request",
         "Type": "UniVisionBot.DTOs.Major.MajorRequest",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
-    "Method": "GetAllMajorOfFaculty",
-    "RelativePath": "api/faculties",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "facultyId",
-        "Type": "System.String",
-        "IsRequired": false
       },
       {
-        "Name": "page",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
-    "Method": "DeleteMajor",
-    "RelativePath": "api/faculties/{majorId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "majorId",
-        "Type": "System.String",
+        "Name": "facultyId",
+        "Type": "",
         "IsRequired": true
-      },
-      {
-        "Name": "facultyId",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -290,7 +274,7 @@
   {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "UpdateMajor",
-    "RelativePath": "api/faculties/major/{majorId}",
+    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -302,6 +286,32 @@
       },
       {
         "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "DeleteMajor",
+    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
         "Type": "System.String",
         "IsRequired": true
       }
