@@ -11,9 +11,6 @@ namespace UniVisionBot.DTOs.Major
         [RegularExpression(@"^[a-f\d]{24}$", ErrorMessage = "FacultyId must be a valid ObjectId string")]
         public string FacultyId { get; set; }
 
-        [Required(ErrorMessage = "CareerIds are required")]
-        public List<string> CareerIds { get; set; } // Changed to a list of strings for multiple career paths
-
         [Required(ErrorMessage = "Name is required")]
         [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters")]
         public string Name { get; set; }

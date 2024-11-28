@@ -232,7 +232,7 @@
   {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "Create",
-    "RelativePath": "api/faculties/{facultyId}/major",
+    "RelativePath": "api/faculties",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -241,11 +241,6 @@
         "Name": "request",
         "Type": "UniVisionBot.DTOs.Major.MajorRequest",
         "IsRequired": true
-      },
-      {
-        "Name": "facultyId",
-        "Type": "",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -253,7 +248,7 @@
   {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "GetAllMajorOfFaculty",
-    "RelativePath": "api/faculties/{facultyId}/major",
+    "RelativePath": "api/faculties",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -273,34 +268,8 @@
   },
   {
     "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
-    "Method": "UpdateMajor",
-    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "UniVisionBot.DTOs.Major.MajorRequest",
-        "IsRequired": true
-      },
-      {
-        "Name": "majorId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "facultyId",
-        "Type": "",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
     "Method": "DeleteMajor",
-    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
+    "RelativePath": "api/faculties/{majorId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -314,6 +283,27 @@
         "Name": "facultyId",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "UpdateMajor",
+    "RelativePath": "api/faculties/major/{majorId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Major.MajorRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

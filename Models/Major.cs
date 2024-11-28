@@ -15,10 +15,6 @@ namespace UniVisionBot.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string FacultyId { get; set; } // Reference to Faculty
 
-        [BsonElement("career_ids")]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string CareerIds { get; set; } // Changed to a list of ObjectIds
-
         [BsonElement("name")]
         public string Name { get; set; }
 

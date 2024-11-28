@@ -9,7 +9,7 @@ using UniVisionBot.Services.Major;
 
 namespace UniVisionBot.Area.Admin.Controllers
 {
-    [Route("api/faculties/{facultyId?}/major")]
+    [Route("api/faculties")]
     [ApiController]
     public class MajorController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace UniVisionBot.Area.Admin.Controllers
             var result = await _majorRepository.CreateNewMajorAsync(request);
             return Ok(result);
         }
-        [HttpPut("{majorId}")]
+        [HttpPut("major/{majorId}")]
         public async Task<IActionResult> UpdateMajor([FromBody] MajorRequest request, string majorId)
         {
             if (!ModelState.IsValid)

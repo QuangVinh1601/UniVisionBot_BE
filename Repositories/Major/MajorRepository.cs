@@ -33,13 +33,7 @@ namespace UniVisionBot.Repositories.MajorRepository
             {
                 throw new BadInputException("Invalid input");
             }
-            foreach (var careerId in request.CareerIds)
-            {
-                if (!ObjectId.TryParse(careerId, out ObjectId careerObjectId))
-                {
-                    throw new BadInputException("Invalid input");
-                }
-            }
+            
             var major = _mapper.Map<MajorRequest, Major>(request);
             await _majorCollection.InsertOneAsync(major);
 
@@ -56,13 +50,6 @@ namespace UniVisionBot.Repositories.MajorRepository
             if (!ObjectId.TryParse(request.FacultyId, out ObjectId facultyObjectId))
             {
                 throw new BadInputException("Invalid format");
-            }
-            foreach (var careerId in request.CareerIds)
-            {
-                if (!ObjectId.TryParse(careerId, out ObjectId careerObjectId))
-                {
-                    throw new BadInputException("Invalid format");
-                }
             }
             var majorExisted = _majorCollection.AsQueryable().Where(m => m.Id == majorId).FirstOrDefault();
             if (majorExisted == null)
