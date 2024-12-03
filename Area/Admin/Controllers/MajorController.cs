@@ -51,7 +51,13 @@ namespace UniVisionBot.Area.Admin.Controllers
             var result = await _majorRepository.GetMajorsbyFacultyIdAsync(facultyId, page);
             return Ok(result);
         }
-     
+        [HttpGet("{majorId}")]
+        public IActionResult GetParticularMajor(string majorId)
+        {
+            var major =  _majorRepository.GetMajorById(majorId);
+            return Ok(major);
+        }
+        
 
 
     }

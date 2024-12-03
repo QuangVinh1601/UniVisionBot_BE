@@ -106,5 +106,13 @@ namespace UniVisionBot.Repositories.MajorRepository
             return majorPaginatedListResponse;
 
         }
+
+        public  MajorResponse GetMajorById(string majorId)
+        {
+            var filter = Builders<Major>.Filter.Eq(m => m.Id, majorId);
+            var major =  _majorCollection.Find(filter).FirstOrDefault();
+            var majorResponse = _mapper.Map<Major, MajorResponse>(major);
+            return majorResponse;
+        }
     }
 }

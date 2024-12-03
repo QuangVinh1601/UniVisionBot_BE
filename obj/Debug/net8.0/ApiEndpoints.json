@@ -18,6 +18,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Author",
         "Type": "System.String",
         "IsRequired": false
@@ -72,6 +77,11 @@
       {
         "Name": "ImageFile",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -313,6 +323,27 @@
       {
         "Name": "facultyId",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.MajorController",
+    "Method": "GetParticularMajor",
+    "RelativePath": "api/faculties/{facultyId}/major/{majorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "majorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "facultyId",
+        "Type": "",
         "IsRequired": true
       }
     ],
