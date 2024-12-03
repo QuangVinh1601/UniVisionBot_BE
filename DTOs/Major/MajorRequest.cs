@@ -7,10 +7,6 @@ namespace UniVisionBot.DTOs.Major
     public class MajorRequest
     {
 
-        [Required(ErrorMessage = "FacultyId is required")]
-        [RegularExpression(@"^[a-f\d]{24}$", ErrorMessage = "FacultyId must be a valid ObjectId string")]
-        public string FacultyId { get; set; }
-
         [Required(ErrorMessage = "Name is required")]
         [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters")]
         public string Name { get; set; }

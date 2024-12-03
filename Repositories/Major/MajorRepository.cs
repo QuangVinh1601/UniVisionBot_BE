@@ -47,10 +47,7 @@ namespace UniVisionBot.Repositories.MajorRepository
             {
                 throw new BadInputException("Invalid format");
             }
-            if (!ObjectId.TryParse(request.FacultyId, out ObjectId facultyObjectId))
-            {
-                throw new BadInputException("Invalid format");
-            }
+           
             var majorExisted = _majorCollection.AsQueryable().Where(m => m.Id == majorId).FirstOrDefault();
             if (majorExisted == null)
             {
@@ -58,6 +55,7 @@ namespace UniVisionBot.Repositories.MajorRepository
             }
             var majorMap = _mapper.Map<MajorRequest, Major>(request);
             majorMap.Id = majorId;
+            majorMap.FacultyId = majorExisted.FacultyId;
             var resultReplace = await _majorCollection.ReplaceOneAsync(Builders<Major>.Filter.Eq(m => m.Id, majorExisted.Id), majorMap);
             if (!resultReplace.IsAcknowledged)
             {
