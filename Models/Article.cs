@@ -12,6 +12,10 @@ namespace UniVisionBot.Models
         public string Id { get; set; }
         [BsonElement("author")]
         public string Author { get; set; }
+
+        [BsonElement("title")]
+        public string Title  { get; set; }
+
         [BsonElement("content")]
         public string Content { get; set; }
         [BsonElement("urlImage")]

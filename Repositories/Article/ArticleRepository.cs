@@ -37,6 +37,7 @@ namespace UniVisionBot.Repositories.Articles
                 {
                     Content = request.Content,
                     Author = request.Author,
+                    Title = request.Title,
                     UrlImage = listUrlImage,
                     CreatedAt = DateTime.Now,
                 };
@@ -105,6 +106,7 @@ namespace UniVisionBot.Repositories.Articles
                     Id = article.Id,
                     Author = request.Author,
                     Content = request.Content,
+                    Title = request.Title,
                     UrlImage = await _imageRepository.GetUrlImage(request.ImageFile),
                 };
                 var replaceResult = await _articleCollection.ReplaceOneAsync(Builders<Article>.Filter.Eq(a => a.Id, article.Id), articleReplace);
