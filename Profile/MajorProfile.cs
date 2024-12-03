@@ -9,6 +9,7 @@ namespace UniVisionBot.Profiles
         public MajorProfile()
         {
             CreateMap<MajorRequest,Major>();
+            CreateMap<MajorCreateRequest, Major>(); 
             CreateMap<Major,MajorResponse>();
         }
     }

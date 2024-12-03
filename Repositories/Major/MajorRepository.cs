@@ -27,14 +27,14 @@ namespace UniVisionBot.Repositories.MajorRepository
             _facultyCollection = databaseName.GetCollection<Faculty>(_options.Value.FacultyCollectionName);
         }
 
-        public async Task<MajorResponse> CreateNewMajorAsync(MajorRequest request)
+        public async Task<MajorResponse> CreateNewMajorAsync(MajorCreateRequest request)
         {
             if (!ObjectId.TryParse(request.FacultyId, out ObjectId facultyId))
             {
                 throw new BadInputException("Invalid input");
             }
             
-            var major = _mapper.Map<MajorRequest, Major>(request);
+            var major = _mapper.Map<MajorCreateRequest, Major>(request);
             await _majorCollection.InsertOneAsync(major);
 
             var majorResponse = _mapper.Map<Major, MajorResponse>(major);
