@@ -20,10 +20,10 @@ namespace UniVisionBot.Controllers
         }
 
 
-        [HttpGet("current/{currentUserId}")]
-        public async Task<IActionResult> GetConversationForUser(string currentUserId)
+        [HttpGet("current/{currentUserId}/{consultantId}")]
+        public async Task<IActionResult> GetConversationForUser(string currentUserId, string consultantId)
         {
-            var conversation = await _chatRepository.GetConversationForCurrentUser(currentUserId);
+            var conversation = await _chatRepository.GetConversationForCurrentUser(currentUserId, consultantId);
             return Ok(conversation);
         }
 
@@ -65,7 +65,5 @@ namespace UniVisionBot.Controllers
             await _hubContext.Clients.Client(consultantConnectionId).SendAsync("NofityPendingConversation", response);
             return Ok();
         }
-
-
     }
 }

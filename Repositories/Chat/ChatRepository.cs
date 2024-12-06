@@ -59,14 +59,13 @@ namespace UniVisionBot.Repositories.Chat
             return conversationListResponse;
         }
         //User side
-        public async Task<ConversationResponse> GetConversationForCurrentUser(string currentUserId)
+        public async Task<ConversationResponse> GetConversationForCurrentUser(string currentUserId, string consultantId)
         {
             if (!ObjectId.TryParse(currentUserId, out ObjectId objectCurrentUserId))
             {
                 throw new BadInputException("Invalid format");
             }
-            var filterConversation = Builders<Conversation>.Filter.Eq(m => m.UserId, currentUserId);
-            var conversation = _conversationCollection.Find(filterConversation).FirstOrDefault();
+            var conversation = _conversationCollection.Find(c => c.UserId == currentUserId && c.ConsultantId == consultantId).FirstOrDefault();
             if (conversation == null)
             {
                 throw new NotFoundException("Conversation is not existed");
@@ -146,7 +145,7 @@ namespace UniVisionBot.Repositories.Chat
                 Id = pc.Id,
                 ConversationId = pc.conversationId,
                 Status = pc.Status,
-                UserName = pc.UserName,
+                Fullname = pc.Fullname,
                 CreatedAt = pc.CreatedAt
             }).ToList();
             return pendingConversationList;
@@ -164,7 +163,7 @@ namespace UniVisionBot.Repositories.Chat
             var pendingConvesationResponse = new PendingConversationResponse
             {
                 Id = pendingConversation.Id,
-                UserName = pendingConversation.UserName,
+                Fullname = pendingConversation.Fullname,
                 ConversationId = pendingConversation.conversationId,
                 Status = pendingConversation.Status,
                 CreatedAt = pendingConversation.CreatedAt

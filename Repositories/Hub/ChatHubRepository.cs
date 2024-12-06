@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Runtime.CompilerServices;
 using UniVisionBot.Configurations.DbConfig;
 using UniVisionBot.DTOs.Chat;
 using UniVisionBot.Exceptions;
@@ -14,6 +15,7 @@ namespace UniVisionBot.Repositories.ChatHub
     {
         private readonly IMongoCollection<Conversation> _conversationCollection;
         private readonly IMongoCollection<Message> _messageCollection;
+        private readonly IMongoCollection<AppUser> _appUsersCollection;
         private readonly IOptions<MyDatabase> _options;
         private readonly IMapper _mapper;
         public ChatHubRepository(IOptions<MyDatabase> options, IMapper mapper) 
@@ -23,6 +25,7 @@ namespace UniVisionBot.Repositories.ChatHub
             var databaseName = connnectionString.GetDatabase(_options.Value.DatabaseName);
             _conversationCollection = databaseName.GetCollection<Conversation>(_options.Value.ConversationCollectionName);
             _messageCollection = databaseName.GetCollection<Message>(_options.Value.MessageCollectionName);
+            _appUsersCollection = databaseName.GetCollection<AppUser>(_options.Value.AppUsersCollectionName);
             _mapper = mapper;
         }
 
@@ -39,6 +42,25 @@ namespace UniVisionBot.Repositories.ChatHub
             var messageResponseMap = _mapper.Map<MessageResponse, Message>(messageMap);
             await _messageCollection.InsertOneAsync(messageResponseMap);
             return messageMap;
+        }
+        public async Task<ConversationResponse> GetConversation(string conversationId)
+        {
+            var conversation = await _conversationCollection.Find(c => c.Id == conversationId).FirstOrDefaultAsync();
+
+            if(!ObjectId.TryParse(conversation.UserId, out ObjectId objectuserId))
+            {
+                throw new Exception("Invalid value");
+            }
+            var user = await _appUsersCollection.Find(u => u.Id == objectuserId).FirstOrDefaultAsync();
+            var userMap = _mapper.Map<AppUser, UserResponse>(user);
+            var messageList = await _messageCollection.Find(m => m.ConversationId == conversationId).ToListAsync();
+            var lastMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
+            var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
+            var conversationResponse = _mapper.Map<Conversation, ConversationResponse>(conversation);
+            conversationResponse.Messages = messageMap;
+            conversationResponse.LastMessage = lastMessage;
+            conversationResponse.User = userMap;
+            return conversationResponse;
         }
     }
 }

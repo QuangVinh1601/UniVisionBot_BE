@@ -13,8 +13,8 @@ namespace UniVisionBot.Models
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         [BsonElement("conversationId")]
         public string conversationId { get; set; }
-        [BsonElement("username")]
-        public string UserName { get; set; }
+        [BsonElement("fullName")]
+        public string Fullname { get; set; }
         [BsonElement("status")]
         public string Status {  get; set; }
         [BsonElement("created_at")]

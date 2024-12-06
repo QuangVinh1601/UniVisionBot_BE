@@ -190,13 +190,18 @@
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "GetConversationForUser",
-    "RelativePath": "api/conversations/current/{currentUserId}",
+    "RelativePath": "api/conversations/current/{currentUserId}/{consultantId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "currentUserId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "consultantId",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -249,7 +254,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "UniVisionBot.DTOs.Major.MajorRequest",
+        "Type": "UniVisionBot.DTOs.Major.MajorCreateRequest",
         "IsRequired": true
       },
       {

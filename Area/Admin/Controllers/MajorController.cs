@@ -19,7 +19,7 @@ namespace UniVisionBot.Area.Admin.Controllers
             _majorRepository = majorRepository;
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] MajorRequest request)
+        public async Task<IActionResult> Create([FromBody] MajorCreateRequest request)
         {
             if (!ModelState.IsValid)
             {

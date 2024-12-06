@@ -5,5 +5,6 @@ namespace UniVisionBot.Services.ChatHub
     public interface IChatHubRepository
     {
         Task<MessageResponse> SaveMessage(MessageRequest request);
+        Task<ConversationResponse> GetConversation(string conversationId);
     }
 }
