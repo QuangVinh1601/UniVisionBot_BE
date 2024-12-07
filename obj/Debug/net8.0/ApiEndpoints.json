@@ -672,22 +672,6 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
-    "Method": "GetTitleUniversityExamScoreFromSearching",
-    "RelativePath": "api/UniversityExamScore",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "UniVisionBot.DTOs.UniversityExamScore.UniversityExamScoreRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
     "Method": "GetScoreExamOfEachUniversityByYear",
     "RelativePath": "api/UniversityExamScore/getscore",
     "HttpMethod": "GET",
@@ -696,13 +680,29 @@
     "Parameters": [
       {
         "Name": "Year",
-        "Type": "System.String",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
         "Name": "UniversityCode",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
+    "Method": "GetTitleUniversityExamScoreFromSearching",
+    "RelativePath": "api/UniversityExamScore/searching",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.UniversityExamScore.UniversityExamScoreRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

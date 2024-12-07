@@ -63,16 +63,24 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                             { "name", "$name" },
                             { "major_code", "$major_code" },
                             { "subject_combinations", "$subject_combinations" },
-                            { "entryScoreExam", new BsonDocument("$getField", new BsonDocument
+                            { "entryScoreExam", new BsonDocument("$ifNull", new BsonArray
                                 {
-                                    { "field", request.Year },
-                                    { "input", "$entry_score_exam" }
+                                    new BsonDocument("$getField", new BsonDocument
+                                    {
+                                        { "field", request.Year.ToString() },
+                                        { "input", "$entry_score_exam" }
+                                    }),
+                                    ""
                                 })
                             },
-                            { "entryScoreRecord", new BsonDocument("$getField", new BsonDocument
+                            { "entryScoreRecord", new BsonDocument("$ifNull", new BsonArray
                                 {
-                                    { "field", request.Year },
-                                    { "input", "$entry_score_record" }
+                                    new BsonDocument("$getField", new BsonDocument
+                                    {
+                                        { "field", request.Year.ToString() },
+                                        { "input", "$entry_score_record" }
+                                    }),
+                                    ""
                                 })
                             },
                             { "notes", "$notes" }
@@ -99,65 +107,113 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                     MajorName = m["name"].AsString,
                     MajorCode = m["major_code"].AsString,
                     SubjectCombinations = m["subject_combinations"].AsBsonArray.Select(s => s.AsString).ToList(),
-                    EntryScoreExam = m["entryScoreExam"].AsString,
-                    EntryScoreRecord = m["entryScoreRecord"].AsString,
+                    EntryScoreExam = m["entryScoreExam"].IsBsonNull ? null : m["entryScoreExam"].AsString,
+                    EntryScoreRecord = m["entryScoreRecord"].IsBsonNull ? null : m["entryScoreRecord"].AsString,
                     Notes = m["notes"].AsString
                 })).ToList()
             };
 
             return response;
-            }
+        }
         public async Task<List<UniversityExamScoreResponse>> GetTiileBySearching(UniversityExamScoreRequest request)
         {
-
-            var pipeline = new BsonDocument[]
+            var pipeline = new List<BsonDocument>
+        {
+            // Initial match to ensure entry score exists for the specified year
+            new BsonDocument("$match", new BsonDocument("$or", new BsonArray()
             {
-                new BsonDocument("$match", new BsonDocument("$or", new BsonArray()
+                new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true)),
+                new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
+            })),
+
+            // Lookup for Faculty
+            new BsonDocument("$lookup", new BsonDocument
+            {
+                {"from", "Faculty"},
+                {"localField", "faculty_id"},
+                {"foreignField","_id"},
+                {"as", "faculty_info"}
+            }),
+            new BsonDocument("$unwind", "$faculty_info"),
+
+            // Lookup for University
+            new BsonDocument("$lookup", new BsonDocument
+            {
+                {"from", "University"},
+                {"localField", "faculty_info.university_id"},
+                {"foreignField", "_id"},
+                {"as", "university_info"}
+            }),
+            new BsonDocument("$unwind", "$university_info")
+        };
+
+            // Conditionally add search/filter stage
+            if (!string.IsNullOrWhiteSpace(request.SearchTerm) || request.Year != null)
+            {
+                var matchConditions = new BsonArray();
+
+                // Add search term conditions if provided
+                if (!string.IsNullOrWhiteSpace(request.SearchTerm))
                 {
-                    new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true) ),
-                    new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
-                })),
-                new BsonDocument("$lookup", new BsonDocument
+                    // Check if the search term matches university name or university code
+                    matchConditions.Add(
+                        new BsonDocument("$or", new BsonArray
+                        {
+                        new BsonDocument("university_info.name", new BsonRegularExpression(request.SearchTerm, "i")), // Search by university name (case-insensitive)
+                        new BsonDocument("university_info.university_code", new BsonRegularExpression(request.SearchTerm, "i"))  // Search by university code (case-insensitive)
+                        })
+                    );
+                }
+
+                // Add year condition if provided
+                if (request.Year != null)
                 {
-                    {"from", "Faculty" },
-                    {"localField", "faculty_id"},
-                    {"foreignField","_id" },
-                    {"as", "faculty_info" }
-                }),
-                new BsonDocument("$unwind", "$faculty_info"),
-                new BsonDocument("$lookup", new BsonDocument
+                    matchConditions.Add(
+                        new BsonDocument("$or", new BsonArray
+                        {
+                        new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true)),
+                        new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
+                        })
+                    );
+                }
+
+                // Apply the match condition
+                if (matchConditions.Count > 0)
                 {
-                    {"from", "University" },
-                    {"localField", "faculty_info.university_id" },
-                    {"foreignField", "_id" },
-                    {"as", "university_info" }
-                }),
-                new BsonDocument("$unwind", "$university_info"),
-                new BsonDocument("$match", new BsonDocument("$or", new BsonArray(){
-                    new BsonDocument("university_info.university_code", new BsonDocument("$regex", new BsonRegularExpression(request.SearchTerm,"i"))),
-                    new BsonDocument("university_info.name", new BsonDocument("$regex", new BsonRegularExpression(request.SearchTerm,"i")))
-                })),
-                new BsonDocument("$project", new BsonDocument()
-                {
-                    {"year", request.Year },
-                    {"university_code", "$university_info.university_code" },
-                    {"university_name", "$university_info.name"},
-                    {"title", new BsonDocument("$concat", new BsonArray(){
-                        "Điểm chuẩn năm " ,request.Year.ToString(), " - ", "$university_info.university_code", " - ", "$university_info.name"
-                    })}
-                })
-            };
+                    pipeline.Add(new BsonDocument("$match", new BsonDocument("$and", matchConditions)));
+                }
+            }
+
+            // Project stage
+            pipeline.Add(new BsonDocument("$project", new BsonDocument
+        {
+            {"year", request.Year},
+            {"university_code", "$university_info.university_code"},
+            {"university_name", "$university_info.name"},
+            {"title", new BsonDocument("$concat", new BsonArray
+            {
+                "Điểm chuẩn năm ",
+                request.Year.ToString(),
+                " - ",
+                "$university_info.university_code",
+                " - ",
+                "$university_info.name"
+            })}
+        }));
 
             var result = await _majorCollection.Aggregate<BsonDocument>(pipeline).ToListAsync();
+
             var response = result.Select(r => new UniversityExamScoreResponse
             {
                 Title = r.Contains("title") ? r["title"].AsString : string.Empty,
                 UniversityCode = r.Contains("university_code") ? r["university_code"].AsString : string.Empty,
                 UniversityName = r.Contains("university_name") ? r["university_name"].AsString : string.Empty,
-                Year = r.Contains("year") ? r["year"].AsString : string.Empty
+                Year = request.Year
             }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();
+
             return response;
         }
+      
         public async Task<List<UniversityExamScoreResponse>> GetTitle()
         {
             var pipeline = new BsonDocument[]
@@ -192,7 +248,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                         })
                     }
                 })
-           };
+           }    ;
 
             var result = await _majorCollection.Aggregate<BsonDocument>(pipeline).ToListAsync();
 
@@ -200,7 +256,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             var response = result.Select(r => new UniversityExamScoreResponse
             {
                 Title = r["title"].AsString,
-                Year = "2024",
+                Year = 2024,
                 UniversityName = r["university_name"].AsString,
                 UniversityCode = r["university_code"].AsString
             }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();

@@ -20,7 +20,7 @@ namespace UniVisionBot.Controllers
             var result =  await _universityExamScoreRepository.GetTitle();
             return Ok(result);
         }
-        [HttpPost]
+        [HttpPost("searching")]
         public async Task<IActionResult> GetTitleUniversityExamScoreFromSearching([FromBody] UniversityExamScoreRequest request)
         {
             var result = await _universityExamScoreRepository.GetTiileBySearching(request);
