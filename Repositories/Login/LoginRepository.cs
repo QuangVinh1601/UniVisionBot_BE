@@ -18,6 +18,7 @@ namespace UniVisionBot.Repositories.Login
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
+        private readonly Login
         private readonly IOptions<AppSettings> _options;
         public LoginRepository(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IOptions<AppSettings> options)
         {
@@ -115,6 +116,8 @@ namespace UniVisionBot.Repositories.Login
             {
                 return new LoginResponse { Message ="Invalid email/password" , Success = false };            
             }
+
+            
 
             var claim = new List<Claim>
             {
