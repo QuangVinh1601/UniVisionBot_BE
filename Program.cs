@@ -113,7 +113,8 @@ namespace UniVisionBot
             .AddUserManager<UserManager<AppUser>>()
             .AddSignInManager<SignInManager<AppUser>>()
             .AddRoleManager<RoleManager<AppRole>>()
-            .AddDefaultTokenProviders();    
+            .AddDefaultTokenProviders();
+
 
             builder.Services.AddAuthentication(x =>
             {
@@ -136,6 +137,9 @@ namespace UniVisionBot
                     ClockSkew = TimeSpan.Zero
 
                 };
+            }).AddCookie(option =>
+            {
+                option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
             });
             builder.Services.AddSignalR(options =>
             {

@@ -70,10 +70,10 @@ namespace UniVisionBot.DTOs.Major
         public List<string> SubjectCombinations { get; set; }
 
         [Required(ErrorMessage = "EntryScoreExam is required")]
-        public Dictionary<int, string> EntryScoreExam { get; set; }
+        public Dictionary<string, string> EntryScoreExam { get; set; }
 
         [Required(ErrorMessage = "EntryScoreRecord is required")]
-        public Dictionary<int, string> EntryScoreRecord { get; set; }
+        public Dictionary<string, string> EntryScoreRecord { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "TuitionFee must be a positive number")]
         public decimal TuitionFee { get; set; }

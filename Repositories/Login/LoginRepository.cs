@@ -18,13 +18,14 @@ namespace UniVisionBot.Repositories.Login
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
-        private readonly Login
+        private readonly SignInManager<AppUser> _signInManger;
         private readonly IOptions<AppSettings> _options;
-        public LoginRepository(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IOptions<AppSettings> options)
+        public LoginRepository(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager, IOptions<AppSettings> options)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _options = options;
+            _signInManger = signInManager;
         }
 
         public async Task<RegisterResponse> CreateAdminRoleAsync(RegisterRequest request)
@@ -117,8 +118,11 @@ namespace UniVisionBot.Repositories.Login
                 return new LoginResponse { Message ="Invalid email/password" , Success = false };            
             }
 
-            
-
+            var signInResult = await _signInManger.CheckPasswordSignInAsync(user, request.Password, false);
+            if (!signInResult.Succeeded)
+            {
+                return new LoginResponse { Message = "Invalid email/password", Success = false };
+            }
             var claim = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),

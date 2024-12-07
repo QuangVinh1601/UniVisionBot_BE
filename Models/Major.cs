@@ -34,10 +34,10 @@ namespace UniVisionBot.Models
         public List<string> SubjectCombinations { get; set; } // Danh sách mã tổ hợp môn
 
         [BsonElement("entry_score_exam")]
-        public Dictionary<int, string> EntryScoreExam { get; set; } // Điểm thi đại học theo từng năm
+        public Dictionary<string, string> EntryScoreExam { get; set; } // Điểm thi đại học theo từng năm
 
         [BsonElement("entry_score_record")]
-        public Dictionary<int, string> EntryScoreRecord { get; set; } // Điểm học bạ theo từng năm
+        public Dictionary<string, string> EntryScoreRecord { get; set; } // Điểm học bạ theo từng năm
 
         [BsonElement("tuition_fee")]
         public decimal TuitionFee { get; set; } // Học phí theo từng năm

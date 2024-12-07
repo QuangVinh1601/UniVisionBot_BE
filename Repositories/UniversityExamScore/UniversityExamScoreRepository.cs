@@ -67,7 +67,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                                 {
                                     new BsonDocument("$getField", new BsonDocument
                                     {
-                                        { "field", request.Year.ToString() },
+                                        { "field", request.Year },
                                         { "input", "$entry_score_exam" }
                                     }),
                                     ""
@@ -77,7 +77,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                                 {
                                     new BsonDocument("$getField", new BsonDocument
                                     {
-                                        { "field", request.Year.ToString() },
+                                        { "field", request.Year},
                                         { "input", "$entry_score_record" }
                                     }),
                                     ""
@@ -193,7 +193,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             {"title", new BsonDocument("$concat", new BsonArray
             {
                 "Điểm chuẩn năm ",
-                request.Year.ToString(),
+                request.Year,
                 " - ",
                 "$university_info.university_code",
                 " - ",
@@ -256,7 +256,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
             var response = result.Select(r => new UniversityExamScoreResponse
             {
                 Title = r["title"].AsString,
-                Year = 2024,
+                Year = "2024",
                 UniversityName = r["university_name"].AsString,
                 UniversityCode = r["university_code"].AsString
             }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();

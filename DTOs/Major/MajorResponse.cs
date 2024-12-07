@@ -13,8 +13,8 @@ namespace UniVisionBot.DTOs.Major
         public string MajorCode { get; set; }
         public List<string> SubjectCombinations { get; set; }
 
-        public Dictionary<int, string> EntryScoreExam { get; set; }
-        public Dictionary<int, string> EntryScoreRecord { get; set; }
+        public Dictionary<string, string> EntryScoreExam { get; set; }
+        public Dictionary<string, string> EntryScoreRecord { get; set; }
 
         public decimal TuitionFee { get; set; }
         public string Notes { get; set; }

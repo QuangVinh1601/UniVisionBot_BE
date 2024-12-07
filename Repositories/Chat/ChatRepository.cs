@@ -49,11 +49,14 @@ namespace UniVisionBot.Repositories.Chat
                 var filterUser = Builders<AppUser>.Filter.Eq("_id", objectUserId);
                 var user = await _appUserCollection.Find(filterUser).FirstOrDefaultAsync();
 
-                var latestMessage = (await _messageCollection.Find(m => m.ConversationId == conversation.Id).ToListAsync()).OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
+                var messageList = await _messageCollection.Find(m => m.ConversationId == conversation.Id).ToListAsync();
+                var latestMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
                 var conversationmap = _mapper.Map<Conversation, ConversationResponse>(conversation);
+                var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
                 var userMap = _mapper.Map<AppUser, UserResponse>(user);
                 conversationmap.LastMessage = latestMessage;
                 conversationmap.User = userMap;
+                conversationmap.Messages = messageMap;
                 conversationListResponse.Add(conversationmap);
                 }
             return conversationListResponse;

@@ -5,14 +5,14 @@
         public string Title { get; set; }
         public string UniversityName { get; set; }
         public string UniversityCode { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
     }
     public class ScoreExamOfEachUniversityByYearResponse
     {
         public string Title { get; set; }
         public string UniversityCode { get; set; }
         public string UniversityName { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
         public List<MajorInfo> Majors { get; set; }
     }
     public class MajorInfo
