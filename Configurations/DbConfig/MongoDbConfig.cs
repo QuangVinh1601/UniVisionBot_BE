@@ -22,5 +22,7 @@
         public string MessageCollectionName { get; set; }
         public string ArticleCollectionName { get; set; }
         public string PendingConversationCollectionName { get; set; }
+
+        public string RefreshTokenCollectionName { get; set; }
     }
 }

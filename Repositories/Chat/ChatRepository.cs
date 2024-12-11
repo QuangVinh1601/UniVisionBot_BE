@@ -50,11 +50,12 @@ namespace UniVisionBot.Repositories.Chat
                 var user = await _appUserCollection.Find(filterUser).FirstOrDefaultAsync();
 
                 var messageList = await _messageCollection.Find(m => m.ConversationId == conversation.Id).ToListAsync();
-                var latestMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
+                var latestMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault();
                 var conversationmap = _mapper.Map<Conversation, ConversationResponse>(conversation);
                 var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
                 var userMap = _mapper.Map<AppUser, UserResponse>(user);
-                conversationmap.LastMessage = latestMessage;
+                conversationmap.LastMessage = latestMessage?.Content;
+                conversationmap.LastMessageTime = latestMessage.Created_At;
                 conversationmap.User = userMap;
                 conversationmap.Messages = messageMap;
                 conversationListResponse.Add(conversationmap);

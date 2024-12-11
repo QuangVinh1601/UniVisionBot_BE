@@ -15,5 +15,6 @@ namespace UniVisionBot.Services.Login
 
         Task<RegisterResponse> CreateConsultantRoleAsync (RegisterRequest request);
         Task<RegisterResponse> CreateAdminRoleAsync (RegisterRequest request);
+        Task<Token> ResetAccessToken(string refreshToken); 
     }
 }

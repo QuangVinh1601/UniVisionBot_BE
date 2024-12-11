@@ -12,6 +12,7 @@ namespace UniVisionBot.DTOs.Chat
         public List<MessageResponse> Messages { get; set; }
         public UserResponse User { get; set; }
         public string? LastMessage { get; set; }
+        public DateTime LastMessageTime { get; set; }
     }
     public class UserResponse
     {
@@ -54,8 +55,6 @@ namespace UniVisionBot.DTOs.Chat
     public class PendingConversationRequest
     {
         public string ConversationId { get; set; }
-        public string UserName { get; set; }
-        public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string ConsultantId { get; set; }
     }
 }

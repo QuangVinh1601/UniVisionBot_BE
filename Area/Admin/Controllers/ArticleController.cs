@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using UniVisionBot.DTOs.Article;
@@ -10,6 +11,7 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class ArticleController : ControllerBase
     {
         private readonly IArticleRepository _articleRepository;
@@ -20,6 +22,7 @@ namespace UniVisionBot.Area.Admin.Controllers
             _imageRepository = imageRepository;
         }
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Create([FromForm] ArticleRequest request)
         {
             if (!ModelState.IsValid)
@@ -47,22 +50,24 @@ namespace UniVisionBot.Area.Admin.Controllers
             return Ok(article);
         }
         [HttpDelete("{articleId}/{publicId}")]
+        [Authorize(Roles = "ADMIN")]
         //Truyền vào 1 list publicId
         public async Task<IActionResult> DeleteArticleById(string articleId, string publicId)
         {
-             var decodepublicId = HttpUtility.UrlDecode(publicId);
+             var decodepublicId = HttpUtility.UrlDecode(publicId);  
              var result =  await _imageRepository.DeleteImageById(decodepublicId);
              await _articleRepository.DeleteArticleById(articleId);
              return Ok(result);
         }
         [HttpPut("{articleId}")]
-        public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] ArticleRequest request, [FromForm] string publicId)
+        [Authorize(Roles = "ADMIN")]
+        public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] ArticleRequest request)
         {
             if(!ModelState.IsValid)
             {
                 throw new BadInputException("Invalid input");
             }
-            await _articleRepository.UpdateArticle(articleId, publicId, request);
+            await _articleRepository.UpdateArticle(articleId,request);
             return Ok();
         } 
     }

@@ -49,21 +49,33 @@ namespace UniVisionBot.Controllers
         public IActionResult GetAllPendingConversation()
         {
             var result = _chatRepository.GetAllPendingConversation();
-            return Ok(result);  
+            return Ok(result);
         }
+        
         [HttpDelete("{conversationId}")]
         public async Task<IActionResult> DeleteConversation(string conversationId)
-        {
+        { 
             await _chatRepository.DeleteConversation(conversationId);
             return Ok();
         }
-        [HttpPost("{consultantId}")]
-        public async Task<IActionResult> NotifyNewPendingConversation(string consultantId ,[FromBody] PendingConversationRequest request)
+        [HttpPost("notify")]
+        public async Task<IActionResult> NotifyNewPendingConversation([FromBody] PendingConversationRequest request)
         {
-            var consultantConnectionId = ChatHub.GetConsultantConnection(consultantId);
-            var response = _chatRepository.GetPendingConversation(request);
-            await _hubContext.Clients.Client(consultantConnectionId).SendAsync("NofityPendingConversation", response);
-            return Ok();
+            try
+            {
+                var consultantConnectionId = ChatHub.GetConsultantConnection(request.ConsultantId);
+                if (string.IsNullOrEmpty(consultantConnectionId))
+                {
+                    return BadRequest("Consultant not connected");
+                }
+                var response = _chatRepository.GetPendingConversation(request);
+                await _hubContext.Clients.Client(consultantConnectionId).SendAsync("NotifyPendingConversation", response);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing the request");
+            }
         }
     }
 }

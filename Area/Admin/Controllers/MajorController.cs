@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
@@ -11,6 +12,7 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [Route("api/faculties/{facultyId}/major")]
     [ApiController]
+    [Authorize(Roles ="ADMIN")]
     public class MajorController : ControllerBase
     {
         private readonly IMajorRepository _majorRepository;

@@ -7,4 +7,5 @@ namespace UniVisionBot.Services.ChatHub
         Task<MessageResponse> SaveMessage(MessageRequest request);
         Task<ConversationResponse> GetConversation(string conversationId);
     }
+
 }

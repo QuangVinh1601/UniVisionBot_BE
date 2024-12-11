@@ -54,11 +54,12 @@ namespace UniVisionBot.Repositories.ChatHub
             var user = await _appUsersCollection.Find(u => u.Id == objectuserId).FirstOrDefaultAsync();
             var userMap = _mapper.Map<AppUser, UserResponse>(user);
             var messageList = await _messageCollection.Find(m => m.ConversationId == conversationId).ToListAsync();
-            var lastMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault()?.Content;
+            var lastMessage = messageList.OrderByDescending(m => m.Created_At).FirstOrDefault();
             var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
             var conversationResponse = _mapper.Map<Conversation, ConversationResponse>(conversation);
             conversationResponse.Messages = messageMap;
-            conversationResponse.LastMessage = lastMessage;
+            conversationResponse.LastMessage = lastMessage.Content;
+            conversationResponse.LastMessageTime = lastMessage.Created_At;
             conversationResponse.User = userMap;
             return conversationResponse;
         }

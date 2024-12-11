@@ -152,27 +152,6 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
-    "Method": "NotifyNewPendingConversation",
-    "RelativePath": "api/conversations/{consultantId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "consultantId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "UniVisionBot.DTOs.Chat.PendingConversationRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Controllers.ChatController",
     "Method": "DeleteConversation",
     "RelativePath": "api/conversations/{conversationId}",
     "HttpMethod": "DELETE",
@@ -226,18 +205,24 @@
   },
   {
     "ContainingType": "UniVisionBot.Controllers.ChatController",
-    "Method": "GetAllPendingConversation",
-    "RelativePath": "api/conversations/pending",
-    "HttpMethod": "GET",
+    "Method": "NotifyNewPendingConversation",
+    "RelativePath": "api/conversations/notify",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Chat.PendingConversationRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "UniVisionBot.Controllers.DiagnoseController",
-    "Method": "CheckChatStatus",
-    "RelativePath": "api/diagnostics/chat-status",
+    "ContainingType": "UniVisionBot.Controllers.ChatController",
+    "Method": "GetAllPendingConversation",
+    "RelativePath": "api/conversations/pending",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -377,7 +362,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -390,6 +381,22 @@
     "Parameters": [
       {
         "Name": "feedbackId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Controllers.LoginController",
+    "Method": "ResetAccessToken",
+    "RelativePath": "api/Login/{refreshToken}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "refreshToken",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -474,16 +481,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Controllers.LoginController",
-    "Method": "User",
-    "RelativePath": "api/Login/user",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

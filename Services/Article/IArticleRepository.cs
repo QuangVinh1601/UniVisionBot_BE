@@ -8,6 +8,6 @@ namespace UniVisionBot.Services.Article
         Task<List<ArticleResponse>> GetAllArticle();
         ArticleResponse GetArticleById(string articleId);
         Task DeleteArticleById(string articleId);
-        Task UpdateArticle(string articleId, string publicId, ArticleRequest request);
+        Task UpdateArticle(string articleId, ArticleRequest request);
     }
 }

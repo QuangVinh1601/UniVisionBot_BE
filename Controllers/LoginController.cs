@@ -67,22 +67,29 @@ namespace UniVisionBot.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {   
             var result = await _loginRepository.LoginAsync(request);
-            Response.Cookies.Append("JWT", result.AccessToken);
-            return result.Success ? Ok(result) : BadRequest(result.Message);
-        }
-
-        [HttpGet("user")]
-        public async Task<IActionResult> User()
-        {
-            var JwtToken =  Request.Cookies["JWT"];
-            if (string.IsNullOrEmpty(JwtToken))
+            if (result.Success)
             {
-                throw new BadInputException("Token is missing");
+                Response.Cookies.Append("AccessToken", result.AccessToken.ToString());
+                Response.Cookies.Append("RefreshToken", result.RefreshToken.ToString());
             }
-            var verifiedToken = await _loginRepository.VerifyToken(JwtToken);
-            var userId = verifiedToken.Claims.First(c => c.Type == ClaimTypes.NameIdentifier);
-                return Ok(userId);
-            
+            return result.Success ? Ok(result) : Unauthorized(result.Message);
+        }
+        [HttpPost("{refreshToken}")]
+        public async Task<IActionResult> ResetAccessToken(string refreshToken)
+        {
+            try
+            {
+                var result = await _loginRepository.ResetAccessToken(refreshToken);
+                return Ok(result);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (SecurityTokenExpiredException ex)
+            {
+                return Unauthorized(ex.Message);
+            }
         }
 
       

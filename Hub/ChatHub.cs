@@ -113,4 +113,8 @@ namespace UniVisionBot.Hubs
         }
 
     }
+    public interface NotifyPendingConversation
+    {
+        Task NotifyPendingConversation(PendingConversationResponse response);
+    }
 }

@@ -83,7 +83,7 @@ namespace UniVisionBot.Repositories.Articles
             }
         }
 
-        public async Task UpdateArticle(string articleId, string publicId, ArticleRequest request )
+        public async Task UpdateArticle(string articleId, ArticleRequest request )
         {
             try
             {
@@ -96,11 +96,11 @@ namespace UniVisionBot.Repositories.Articles
                 {
                     throw new NotFoundException("Cannot find article");
                 }
-                if (!article.UrlImage.ContainsKey(publicId))
+                if (!article.UrlImage.ContainsKey(request.PublicId))
                 {
                     throw new NotFoundException("Cannot find key");
                 }
-                await _imageRepository.DeleteImageById(publicId);
+                await _imageRepository.DeleteImageById(request.PublicId);
                 var articleReplace = new Article
                 {
                     Id = article.Id,

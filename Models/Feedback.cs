@@ -12,28 +12,28 @@ namespace UniVisionBot.Models
         [Key]
         public string Id { get; set; }
         [BsonElement("overall_feedback")]
-        public string OverallFeedback { set; get; }
+        public string overallFeedback { set; get; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("user_id")]
-        public string UserId { get; set; }
+        public string userId { get; set; }
         [BsonElement("rating")]
-        public Ratings Rating { get; set; }
+        public Ratings instance { get; set; }
         [BsonElement("created_at")]
         public DateTime? CreatedAt { get; set; }
     }
     public class Ratings
     {
         [Range(1, 5, ErrorMessage = "InterfaceInteraction phải nằm trong khoảng từ 1 đến 5.")]
-        public int InterfaceInteraction { set; get; }
+        public int userInterface { set; get; }
 
         [Range(1, 5, ErrorMessage = "ResponseSpeed phải nằm trong khoảng từ 1 đến 5.")]
-        public int ResponseSpeed { set; get; }
+        public int functionality { set; get; }
 
         [Range(1, 5, ErrorMessage = "InformationRelevance phải nằm trong khoảng từ 1 đến 5.")]
-        public int InformationRelevance { set; get; }
+        public int performance { set; get; }
 
         [Range(1, 5, ErrorMessage = "ContextUnderstanding phải nằm trong khoảng từ 1 đến 5.")]
-        public int ContextUnderstanding { set; get; }
+        public int usefulness { set; get; }
     }
 }

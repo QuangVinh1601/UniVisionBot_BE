@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -10,6 +11,7 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="ADMIN")]
     public class UniversityController : ControllerBase
     {
         private readonly IUniversityRepository _universityRepository;

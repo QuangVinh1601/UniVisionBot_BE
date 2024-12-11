@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniVisionBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c637af811abf869ae5fdf024b15a2fa32b49ac0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9c9165cf5c1d082bcb004642a0c6a0d9d4a3c83")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniVisionBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniVisionBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

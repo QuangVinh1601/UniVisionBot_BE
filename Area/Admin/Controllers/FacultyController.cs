@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UniVisionBot.DTOs.Faculty;
 using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
@@ -8,6 +9,7 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [ApiController]
     [Route("api/universities/{universityId}/faculties")]
+    [Authorize(Roles ="ADMIN")]
     public class FacultyController : Controller
     {
         private readonly IFacultyRepository _facultyRepository;

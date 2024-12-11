@@ -11,6 +11,6 @@ namespace UniVisionBot.DTOs.Feedback
         public string OverallFeedback { set; get; }
         [StringLength(50, ErrorMessage = "UserId không được vượt quá 50 ký tự.")]
         public string UserId { get; set; }
-        public Ratings Rating { get; set; }
+        public Ratings Instance { get; set; }
     }
 }

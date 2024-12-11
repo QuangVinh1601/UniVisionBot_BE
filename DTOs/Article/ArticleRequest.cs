@@ -13,6 +13,8 @@ namespace UniVisionBot.DTOs.Article
         [DataType(DataType.Upload)]
         public IFormFile ImageFile { get; set; }
 
+        public string PublicId { get; set; }
+
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Author name is required.")]
