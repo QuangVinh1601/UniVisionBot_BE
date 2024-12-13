@@ -383,8 +383,7 @@
               "RelativeToolTip": "Controllers\\ChatController.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAjwDkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T04:39:52.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T04:39:52.731Z"
             },
             {
               "$type": "Document",
@@ -408,8 +407,7 @@
               "RelativeToolTip": "Controllers\\LoginController.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAtwEsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:35:15.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:35:15.091Z"
             },
             {
               "$type": "Document",
@@ -419,7 +417,7 @@
               "RelativeDocumentMoniker": "Repositories\\Login\\LoginRepository.cs",
               "ToolTip": "D:\\UniVisionBot_Cap1\\UnivisionBot_BE\\UniVisionBot\\Repositories\\Login\\LoginRepository.cs",
               "RelativeToolTip": "Repositories\\Login\\LoginRepository.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAAAK0AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAAAJoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T02:49:03.127Z",
               "EditorCaption": ""
@@ -434,8 +432,7 @@
               "RelativeToolTip": "Services\\Login\\ILoginRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwBMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:48:12.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:48:12.93Z"
             },
             {
               "$type": "Document",
@@ -447,8 +444,7 @@
               "RelativeToolTip": "DTOs\\Login\\LoginResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:52:22.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T06:52:22.596Z"
             },
             {
               "$type": "Document",
@@ -544,8 +540,7 @@
               "RelativeToolTip": "Area\\Admin\\Controllers\\ArticleController.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAASwDgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T13:08:29.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T13:08:29.306Z"
             },
             {
               "$type": "Document",
@@ -653,8 +648,7 @@
               "RelativeToolTip": "Area\\Admin\\Controllers\\MajorController.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAnwA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T07:46:02.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T07:46:02.894Z"
             },
             {
               "$type": "Document",

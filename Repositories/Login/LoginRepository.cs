@@ -149,7 +149,7 @@ namespace UniVisionBot.Repositories.Login
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Value.SecretKey));
             var signingCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expired = DateTime.Now.AddMinutes(30);
+            var expired = DateTime.Now.AddHours(5);
 
             var token = new JwtSecurityToken(
                   issuer: "https://localhost:7230",
