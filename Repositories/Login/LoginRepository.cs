@@ -149,7 +149,7 @@ namespace UniVisionBot.Repositories.Login
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Value.SecretKey));
             var signingCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expired = DateTime.Now.AddMinutes(2);
+            var expired = DateTime.Now.AddMinutes(30);
 
             var token = new JwtSecurityToken(
                   issuer: "https://localhost:7230",
@@ -160,19 +160,19 @@ namespace UniVisionBot.Repositories.Login
                   );
             var accessToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-            var refreshToken = new RefreshToken
-            {
-                Token = Guid.NewGuid(),
-                UserId = user.Id,
-                Expired = DateTime.Now.AddDays(30),
-                isRevoked = false
-            };
+            //var refreshToken = new RefreshToken
+            //{
+            //    Token = Guid.NewGuid(),
+            //    UserId = user.Id,
+            //    Expired = DateTime.Now.AddDays(30),
+            //    isRevoked = false
+            //};
 
-            await _refreshTokenCollection.InsertOneAsync(refreshToken);
+            //await _refreshTokenCollection.InsertOneAsync(refreshToken);
             return new LoginResponse
             {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken.Token.ToString(),
+                Token = accessToken,
+                //RefreshToken = refreshToken.Token.ToString(),
                 RoleUser = token.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? "USER",
                 Email = user.Email,
                 Success = true,
@@ -182,15 +182,15 @@ namespace UniVisionBot.Repositories.Login
             };
 
         }
-        private static string GetRefreshToken()
-        {
-            var tokenByteArray = new byte[32];
-            using (var ramdom = RandomNumberGenerator.Create())
-            {
-                ramdom.GetBytes(tokenByteArray);
-            }
-            return Convert.ToBase64String(tokenByteArray);
-        }
+        //private static string GetRefreshToken()
+        //{
+        //    var tokenByteArray = new byte[32];
+        //    using (var ramdom = RandomNumberGenerator.Create())
+        //    {
+        //        ramdom.GetBytes(tokenByteArray);
+        //    }
+        //    return Convert.ToBase64String(tokenByteArray);
+        //}
 
         public async Task<RegisterResponse> RegisterAsync(RegisterRequest request)
         {
@@ -265,58 +265,58 @@ namespace UniVisionBot.Repositories.Login
 
         }
 
-        public async Task<Token> ResetAccessToken(string refreshToken)
-        {
-            var token = await _refreshTokenCollection.Find(rt => rt.Token == Guid.Parse(refreshToken)).FirstOrDefaultAsync();
-            if (token == null)
-            {
-                throw new Exception("Cannot find the refreshToken");
-            }
-            if (token.Expired < DateTime.UtcNow)
-            {
-                throw new SecurityTokenExpiredException("Expired token");
-            }
-            token.isRevoked = true;
-            var filter = Builders<RefreshToken>.Filter.Eq(rt => rt.Id, token.Id);
-            await _refreshTokenCollection.ReplaceOneAsync(filter, token);
+        //public async Task<Token> ResetAccessToken(string refreshToken)
+        //{
+        //    var token = await _refreshTokenCollection.Find(rt => rt.Token == Guid.Parse(refreshToken)).FirstOrDefaultAsync();
+        //    if (token == null)
+        //    {
+        //        throw new Exception("Cannot find the refreshToken");
+        //    }
+        //    if (token.Expired < DateTime.UtcNow)
+        //    {
+        //        throw new SecurityTokenExpiredException("Expired token");
+        //    }
+        //    token.isRevoked = true;
+        //    var filter = Builders<RefreshToken>.Filter.Eq(rt => rt.Id, token.Id);
+        //    await _refreshTokenCollection.ReplaceOneAsync(filter, token);
 
-            var user = await _appUserCollection.Find(u => u.Id == token.UserId).FirstOrDefaultAsync();
+        //    var user = await _appUserCollection.Find(u => u.Id == token.UserId).FirstOrDefaultAsync();
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Value.SecretKey));
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.Value.SecretKey));
 
-            var signingCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
-            var claim = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name , user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
-            };
-            var roles = await _userManager.GetRolesAsync(user);
-            var roleUser = roles.Select(r => new Claim(ClaimTypes.Role, r.ToString())).FirstOrDefault();
-            claim.Add(roleUser);
-            var accessToken = new JwtSecurityToken(claims: claim,
-                                                   expires: DateTime.UtcNow.AddMinutes(2),
-                                                   issuer: "https://localhost:7230",
-                                                   audience: "https://localhost:7230",
-                                                   signingCredentials: signingCredential);
-            var newAccessToken = tokenHandler.WriteToken(accessToken);
-            var newRefreshToken = Guid.NewGuid();
-            var refreshTokenDocument = new RefreshToken
-            {
-                Expired = DateTime.UtcNow.AddDays(30),
-                UserId = user.Id,
-                Token = newRefreshToken,
-                isRevoked = false,
-            };
-            await _refreshTokenCollection.InsertOneAsync(refreshTokenDocument);
+        //    var signingCredential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+        //    var claim = new List<Claim>
+        //    {
+        //        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        //        new Claim(ClaimTypes.Name , user.Email),
+        //        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        //        new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
+        //    };
+        //    var roles = await _userManager.GetRolesAsync(user);
+        //    var roleUser = roles.Select(r => new Claim(ClaimTypes.Role, r.ToString())).FirstOrDefault();
+        //    claim.Add(roleUser);
+        //    var accessToken = new JwtSecurityToken(claims: claim,
+        //                                           expires: DateTime.UtcNow.AddMinutes(30),
+        //                                           issuer: "https://localhost:7230",
+        //                                           audience: "https://localhost:7230",
+        //                                           signingCredentials: signingCredential);
+        //    var newAccessToken = tokenHandler.WriteToken(accessToken);
+        //    var newRefreshToken = Guid.NewGuid();
+        //    var refreshTokenDocument = new RefreshToken
+        //    {
+        //        Expired = DateTime.UtcNow.AddDays(30),
+        //        UserId = user.Id,
+        //        Token = newRefreshToken,
+        //        isRevoked = false,
+        //    };
+        //    await _refreshTokenCollection.InsertOneAsync(refreshTokenDocument);
 
-            return new Token
-            {
-                AccessToken = newAccessToken,
-                RefreshToken = newRefreshToken.ToString(),
-            };
-        }
+        //    return new Token
+        //    {
+        //        AccessToken = newAccessToken,
+        //        RefreshToken = newRefreshToken.ToString(),
+        //    };
+        //}
     }
 }

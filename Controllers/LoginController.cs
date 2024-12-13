@@ -67,30 +67,30 @@ namespace UniVisionBot.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {   
             var result = await _loginRepository.LoginAsync(request);
-            if (result.Success)
-            {
-                Response.Cookies.Append("AccessToken", result.AccessToken.ToString());
-                Response.Cookies.Append("RefreshToken", result.RefreshToken.ToString());
-            }
-            return result.Success ? Ok(result) : Unauthorized(result.Message);
+            //if (result.Success)
+            //{
+            //    Response.Cookies.Append("AccessToken", result.AccessToken.ToString());
+            //    Response.Cookies.Append("RefreshToken", result.RefreshToken.ToString());
+            //}
+            return Ok(result);
         }
-        [HttpPost("{refreshToken}")]
-        public async Task<IActionResult> ResetAccessToken(string refreshToken)
-        {
-            try
-            {
-                var result = await _loginRepository.ResetAccessToken(refreshToken);
-                return Ok(result);
-            }
-            catch (NotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (SecurityTokenExpiredException ex)
-            {
-                return Unauthorized(ex.Message);
-            }
-        }
+        //[HttpPost("{refreshToken}")]
+        //public async Task<IActionResult> ResetAccessToken(string refreshToken)
+        //{
+        //    try
+        //    {
+        //        var result = await _loginRepository.ResetAccessToken(refreshToken);
+        //        return Ok(result);
+        //    }
+        //    catch (NotFoundException ex)
+        //    {
+        //        return NotFound(ex.Message);
+        //    }
+        //    catch (SecurityTokenExpiredException ex)
+        //    {
+        //        return Unauthorized(ex.Message);
+        //    }
+        //}
 
       
     }

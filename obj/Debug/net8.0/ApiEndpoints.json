@@ -18,6 +18,11 @@
         "IsRequired": false
       },
       {
+        "Name": "PublicId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -80,17 +85,17 @@
         "IsRequired": false
       },
       {
+        "Name": "PublicId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
       },
       {
         "Name": "Author",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "publicId",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -381,22 +386,6 @@
     "Parameters": [
       {
         "Name": "feedbackId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "UniVisionBot.Controllers.LoginController",
-    "Method": "ResetAccessToken",
-    "RelativePath": "api/Login/{refreshToken}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "refreshToken",
         "Type": "System.String",
         "IsRequired": true
       }

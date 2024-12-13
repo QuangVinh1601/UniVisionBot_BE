@@ -141,6 +141,7 @@ namespace UniVisionBot
             builder.Services.AddSignalR(options =>
             {
                 options.EnableDetailedErrors = true;
+                
             }).AddJsonProtocol(options =>
             {
                 // Giữ nguyên casing của property names

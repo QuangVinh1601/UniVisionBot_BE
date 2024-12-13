@@ -12,7 +12,7 @@ namespace UniVisionBot.DTOs.Chat
         public List<MessageResponse> Messages { get; set; }
         public UserResponse User { get; set; }
         public string? LastMessage { get; set; }
-        public DateTime LastMessageTime { get; set; }
+        public DateTime? LastMessageTime { get; set; }
     }
     public class UserResponse
     {

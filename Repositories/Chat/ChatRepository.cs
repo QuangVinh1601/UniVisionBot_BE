@@ -55,7 +55,7 @@ namespace UniVisionBot.Repositories.Chat
                 var messageMap = _mapper.Map<List<Message>, List<MessageResponse>>(messageList);
                 var userMap = _mapper.Map<AppUser, UserResponse>(user);
                 conversationmap.LastMessage = latestMessage?.Content;
-                conversationmap.LastMessageTime = latestMessage.Created_At;
+                conversationmap.LastMessageTime = latestMessage?.Created_At;
                 conversationmap.User = userMap;
                 conversationmap.Messages = messageMap;
                 conversationListResponse.Add(conversationmap);
