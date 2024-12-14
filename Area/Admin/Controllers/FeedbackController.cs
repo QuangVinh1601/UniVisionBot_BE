@@ -17,7 +17,6 @@ namespace UniVisionBot.Area.Admin.Controllers
             _feedbackRepository = feedbackRepository;
         }
         [HttpPost]
-        [Authorize(Roles = "USER, ADMIN")]
         public async Task<IActionResult> Create(FeedbackRequest request)
         {
             if (!ModelState.IsValid)
@@ -28,14 +27,12 @@ namespace UniVisionBot.Area.Admin.Controllers
             return Ok(request);
         }
         [HttpGet]
-        [Authorize(Roles ="ADMIN")]
         public async Task<IActionResult> GetAllFeedback(int? page)
         {
             var feedbackList = await _feedbackRepository.GetAllFeedback(page ?? 1);
             return Ok(feedbackList);
         }
         [HttpGet("{feedbackId}")]
-        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> GetFeedbackById(string feedbackId)
         {
             var feedback = await _feedbackRepository.GetFeedbackById(feedbackId);

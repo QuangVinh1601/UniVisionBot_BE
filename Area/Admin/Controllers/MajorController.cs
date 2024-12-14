@@ -12,7 +12,6 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [Route("api/faculties/{facultyId}/major")]
     [ApiController]
-    [Authorize(Roles ="ADMIN")]
     public class MajorController : ControllerBase
     {
         private readonly IMajorRepository _majorRepository;

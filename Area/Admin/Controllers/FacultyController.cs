@@ -9,7 +9,6 @@ namespace UniVisionBot.Area.Admin.Controllers
 {
     [ApiController]
     [Route("api/universities/{universityId}/faculties")]
-    [Authorize(Roles ="ADMIN")]
     public class FacultyController : Controller
     {
         private readonly IFacultyRepository _facultyRepository;

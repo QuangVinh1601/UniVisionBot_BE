@@ -22,7 +22,6 @@ namespace UniVisionBot.Area.Admin.Controllers
             _imageRepository = imageRepository;
         }
         [HttpPost]
-        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Create([FromForm] ArticleRequest request)
         {
             if (!ModelState.IsValid)
@@ -50,7 +49,6 @@ namespace UniVisionBot.Area.Admin.Controllers
             return Ok(article);
         }
         [HttpDelete("{articleId}/{publicId}")]
-        [Authorize(Roles = "ADMIN")]
         //Truyền vào 1 list publicId
         public async Task<IActionResult> DeleteArticleById(string articleId, string publicId)
         {
@@ -60,7 +58,6 @@ namespace UniVisionBot.Area.Admin.Controllers
              return Ok(result);
         }
         [HttpPut("{articleId}")]
-        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] ArticleRequest request)
         {
             if(!ModelState.IsValid)
