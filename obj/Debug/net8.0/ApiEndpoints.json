@@ -18,11 +18,6 @@
         "IsRequired": false
       },
       {
-        "Name": "PublicId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -118,6 +113,27 @@
       {
         "Name": "publicId",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UniVisionBot.Area.Admin.Controllers.ArticleController",
+    "Method": "UpdateArticleWithoutImage",
+    "RelativePath": "api/Article/{articleId}/update-without-image",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "UniVisionBot.DTOs.Article.UpdateArticleWithoutImageRequest",
         "IsRequired": true
       }
     ],

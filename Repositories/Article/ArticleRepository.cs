@@ -83,7 +83,7 @@ namespace UniVisionBot.Repositories.Articles
             }
         }
 
-        public async Task UpdateArticle(string articleId, ArticleRequest request )
+        public async Task UpdateArticle(string articleId, UpdateArticleWithImageRequest request )
         {
             try
             {
@@ -116,6 +116,39 @@ namespace UniVisionBot.Repositories.Articles
                 throw new Exception(ex.Message);
             }
            
+        }
+
+        public async Task UpdateArticleWithoutImage(string articleId, UpdateArticleWithoutImageRequest request)
+        {
+            try
+            {
+                if (!ObjectId.TryParse(articleId, out ObjectId objectArticleId))
+                {
+                    throw new BadInputException("Invalid format");
+                }
+                var article = await _articleCollection.Find(a => a.Id == articleId).FirstOrDefaultAsync();
+                if (article == null)
+                {
+                    throw new NotFoundException("Cannot find article");
+                }
+                if (!article.UrlImage.ContainsKey(request.PublicId))
+                {
+                    throw new NotFoundException("Cannot find key");
+                }
+                var articleReplace = new Article
+                {
+                    Id = article.Id,
+                    Author = request.Author,
+                    Content = request.Content,
+                    Title = request.Title,
+                    UrlImage = article.UrlImage
+                };
+                var replaceResult = await _articleCollection.ReplaceOneAsync(Builders<Article>.Filter.Eq(a => a.Id, article.Id), articleReplace);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

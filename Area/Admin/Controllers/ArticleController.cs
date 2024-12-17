@@ -58,14 +58,24 @@ namespace UniVisionBot.Area.Admin.Controllers
              return Ok(result);
         }
         [HttpPut("{articleId}")]
-        public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] ArticleRequest request)
+        public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] UpdateArticleWithImageRequest request)
         {
             if(!ModelState.IsValid)
             {
                 throw new BadInputException("Invalid input");
             }
-            await _articleRepository.UpdateArticle(articleId,request);
+            await _articleRepository.UpdateArticle(articleId,request); 
             return Ok();
-        } 
+        }
+        [HttpPut("{articleId}/update-without-image")]
+        public async Task<IActionResult> UpdateArticleWithoutImage(string articleId, [FromBody] UpdateArticleWithoutImageRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new BadInputException("Invalid input");
+            }
+            await _articleRepository.UpdateArticleWithoutImage(articleId, request);
+            return Ok();
+        }
     }
 }
