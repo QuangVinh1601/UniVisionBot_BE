@@ -52,7 +52,7 @@ namespace UniVisionBot.Area.Admin.Controllers
         //Truyền vào 1 list publicId
         public async Task<IActionResult> DeleteArticleById(string articleId, string publicId)
         {
-             var decodepublicId = HttpUtility.UrlDecode(publicId);  
+             var decodepublicId = HttpUtility.UrlDecode(publicId);      
              var result =  await _imageRepository.DeleteImageById(decodepublicId);
              await _articleRepository.DeleteArticleById(articleId);
              return Ok(result);

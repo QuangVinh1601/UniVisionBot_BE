@@ -38,6 +38,8 @@ using UniVisionBot.Repositories.Articles;
 using UniVisionBot.Configurations.CloudinaryConfig;
 using UniVisionBot.Services.Feedback;
 using UniVisionBot.Repositories.Feedbacks;
+using UniVisionBot.Services.User;
+using UniVisionBot.Repositories.User;
 
 namespace UniVisionBot
 {
@@ -75,6 +77,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<IImageRepository, ImageRepository>();
             builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
             builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.Configure<CloudinaryConfig>(configuration.GetSection("Cloudinary"));
             builder.Services.AddProblemDetails();
