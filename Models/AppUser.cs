@@ -13,3 +13,4 @@ namespace UniVisionBot.Models
         public DateTime? Created {  get; set; }
     }
 }
+    

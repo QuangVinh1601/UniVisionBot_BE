@@ -261,3 +261,4 @@ D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.Asp
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\CloudinaryDotNet.dll
 D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\UniVisionBot_Cap1\UnivisionBot_BE\UniVisionBot\bin\Debug\net8.0\Bogus.dll

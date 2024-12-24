@@ -40,6 +40,7 @@ using UniVisionBot.Services.Feedback;
 using UniVisionBot.Repositories.Feedbacks;
 using UniVisionBot.Services.User;
 using UniVisionBot.Repositories.User;
+using UniVisionBot.Helpers.SeedData;
 
 namespace UniVisionBot
 {
@@ -78,6 +79,7 @@ namespace UniVisionBot
             builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
             builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<SeedData>();
 
             builder.Services.Configure<CloudinaryConfig>(configuration.GetSection("Cloudinary"));
             builder.Services.AddProblemDetails();
@@ -159,7 +161,14 @@ namespace UniVisionBot
             builder.Services.AddSwaggerGen();
           
 
+
             var app = builder.Build();
+
+            using(var scope = app.Services.CreateScope())
+            {
+                var seedData = scope.ServiceProvider.GetService<SeedData>();
+                seedData.InitialData().Wait(); ;
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
