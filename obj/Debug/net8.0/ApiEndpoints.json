@@ -696,15 +696,20 @@
   {
     "ContainingType": "UniVisionBot.Controllers.UniversityExamScoreController",
     "Method": "GetTitleUniversityExamScoreFromSearching",
-    "RelativePath": "api/UniversityExamScore/searching",
-    "HttpMethod": "POST",
+    "RelativePath": "api/UniversityExamScore/search",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "UniVisionBot.DTOs.UniversityExamScore.UniversityExamScoreRequest",
-        "IsRequired": true
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Year",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

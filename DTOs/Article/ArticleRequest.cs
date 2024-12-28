@@ -10,8 +10,7 @@ namespace UniVisionBot.DTOs.Article
         public string Content { get; set; }
 
         [DataType(DataType.Upload)]
-        [Required]
-        public IFormFile ImageFile { get; set; }
+        public IFormFile? ImageFile { get; set; }
 
         public string Title { get; set; }
 

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using UniVisionBot.DTOs.University;
+using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
 using UniVisionBot.Services.Universities;
 
@@ -21,20 +22,27 @@ namespace UniVisionBot.Area.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateNewUniversity(UniversityRequest model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                var university = new University()
+                {
+                    Description = model.Description,
+                    Name = model.Name,
+                    Location = model.Location,
+                    UniversityCode = model.UniversityCode,
+                    ScholarshipsAvailable = model.ScholarshipsAvailable,
+                };
+                await _universityRepository.CreateAsync(university);
+                return Ok(university);
             }
-            var university = new University()
+            catch(BadInputException ex)
             {
-                Description = model.Description,
-                Name = model.Name,
-                Location = model.Location,
-                UniversityCode = model.UniversityCode,
-                ScholarshipsAvailable = model.ScholarshipsAvailable,
-            };
-            await _universityRepository.CreateAsync(university);
-            return Ok(university);
+                return BadRequest("Existed university");
+            }
         }
         [HttpGet("id")]
         public IActionResult GetUniversityById(string id)
@@ -51,8 +59,15 @@ namespace UniVisionBot.Area.Admin.Controllers
         [HttpPut("id")]
         public async Task<IActionResult> UpdateUniversity([FromBody] UniversityRequest request, string id)
         {
-            var university = await _universityRepository.UpdateAsync(request, id);
-            return Ok(university);
+            try
+            {
+                var university = await _universityRepository.UpdateAsync(request, id);
+                return Ok(university);
+            }
+            catch(BadInputException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("id")]

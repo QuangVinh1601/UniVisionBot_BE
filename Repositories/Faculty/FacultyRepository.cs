@@ -39,10 +39,18 @@ namespace UniVisionBot.Repositories.Faculties
             {
                 throw new NotFoundException("Failed to find university");
             }
-            var faculty =  _mapper.Map<FacultyRequest, Faculty>(request);
-            faculty.UniversityId = universityExisted.Id;
-            await _facultyCollection.InsertOneAsync(faculty);
-            var facultyResponse =  _mapper.Map<Faculty, FacultyResponse>(faculty);
+            var facultys = await _facultyCollection.Find(f => f.UniversityId == universityId).ToListAsync();
+            foreach(var faculty in facultys)
+            {
+                if(faculty.Name.ToLower().Replace(" ", "") == request.Name.ToLower().Replace(" ",""))
+                {
+                    throw new BadInputException("Existed faculty");
+                }
+            }
+            var facultyMap =  _mapper.Map<FacultyRequest, Faculty>(request);
+            facultyMap.UniversityId = universityExisted.Id;
+            await _facultyCollection.InsertOneAsync(facultyMap);
+            var facultyResponse =  _mapper.Map<Faculty, FacultyResponse>(facultyMap);
             facultyResponse.Success = true;
             facultyResponse.Message = "Successfully created";
             return facultyResponse;
@@ -86,20 +94,28 @@ namespace UniVisionBot.Repositories.Faculties
             {
                 throw new NotFoundException(nameof(universityExisted), universityId);
             }
+            var facultys = await _facultyCollection.Find(f => f.UniversityId == universityId).ToListAsync();
+            foreach (var faculty in facultys)
+            {
+                if (faculty.Name.ToLower().Replace(" ", "") == request.Name.ToLower().Replace(" ", ""))
+                {
+                    throw new BadInputException("Existed faculty");
+                }
+            }
             var facultyExisted = _facultyCollection.AsQueryable().Where(f => f.Id == facultyId).FirstOrDefault();
             if (facultyExisted == null)
             {
                 throw new NotFoundException(nameof(facultyExisted), facultyId);
             }
-            var faculty = _mapper.Map<FacultyRequest, Faculty>(request);
-            faculty.UniversityId = universityExisted.Id;
-            faculty.Id = facultyExisted.Id;
+            var facultyMap = _mapper.Map<FacultyRequest, Faculty>(request);
+            facultyMap.UniversityId = universityExisted.Id;
+            facultyMap.Id = facultyExisted.Id;
 
             await _facultyCollection.ReplaceOneAsync(
             Builders<Faculty>.Filter.Eq(f => f.Id, facultyExisted.Id),
-            faculty
+            facultyMap
             );
-            var facultyResponse =  _mapper.Map<Faculty, FacultyResponse>(faculty);
+            var facultyResponse =  _mapper.Map<Faculty, FacultyResponse>(facultyMap);
             facultyResponse.Success = true;
             facultyResponse.Message = "Successfully to update";
             return facultyResponse;

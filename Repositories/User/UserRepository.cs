@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using UniVisionBot.Configurations.DbConfig;
 using UniVisionBot.DTOs.User;
+using UniVisionBot.Exceptions;
 using UniVisionBot.Models;
 using UniVisionBot.Services.User;
 
@@ -56,6 +57,18 @@ namespace UniVisionBot.Repositories.User
 
         public async Task UpdateUser(string userId, UserRequest request)
         {
+            var users = (await _userCollection.Find(u => u.Id != ObjectId.Parse(userId)).ToListAsync());
+            foreach (var user in users)
+            {   
+                if (user.UserName == request.UserName)
+                {
+                    throw new BadInputException("Username already exists");
+                }
+                else if(user.Email == request.Email)
+                {
+                    throw new BadInputException("Email already exists");
+                }
+            }
              await _userCollection.UpdateOneAsync(Builders<AppUser>.Filter.Eq(u => u.Id, ObjectId.Parse(userId)),
                                                                   Builders<AppUser>.Update.Set(u => u.Email, request.Email)
                                                                   .Set(u => u.UserName, request.UserName)

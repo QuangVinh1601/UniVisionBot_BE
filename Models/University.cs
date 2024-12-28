@@ -14,10 +14,10 @@ namespace UniVisionBot.Models
         public string Name { get; set; }
 
         [BsonElement("location")]
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
         [BsonElement("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [BsonElement("university_code")]
         public string UniversityCode { get; set; }

@@ -33,11 +33,18 @@ namespace UniVisionBot.Repositories.MajorRepository
             {
                 throw new BadInputException("Invalid input");
             }
-            
-            var major = _mapper.Map<MajorCreateRequest, Major>(request);
-            await _majorCollection.InsertOneAsync(major);
+            var majors = await _majorCollection.Find(m => m.FacultyId == request.FacultyId).ToListAsync();
+            foreach(var major in majors)
+            {
+                if(major.MajorCode == request.MajorCode)
+                {
+                    throw new BadInputException("Existed major");
+                }
+            }
+            var majorMap = _mapper.Map<MajorCreateRequest, Major>(request);
+            await _majorCollection.InsertOneAsync(majorMap);
 
-            var majorResponse = _mapper.Map<Major, MajorResponse>(major);
+            var majorResponse = _mapper.Map<Major, MajorResponse>(majorMap);
             return majorResponse;
         }
 
@@ -52,6 +59,14 @@ namespace UniVisionBot.Repositories.MajorRepository
             if (majorExisted == null)
             {
                 throw new NotFoundException("faculty", majorId);
+            }
+            var majors = await _majorCollection.Find(m => m.FacultyId == majorExisted.FacultyId).ToListAsync();
+            foreach (var major in majors)
+            {
+                if (major.MajorCode == request.MajorCode)
+                {
+                    throw new BadInputException("Existed major");
+                }
             }
             var majorMap = _mapper.Map<MajorRequest, Major>(request);
             majorMap.Id = majorId;

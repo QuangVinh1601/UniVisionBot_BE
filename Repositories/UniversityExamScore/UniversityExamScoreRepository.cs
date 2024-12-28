@@ -117,103 +117,93 @@ namespace UniVisionBot.Repositories.UniversityExamScore
         }
         public async Task<List<UniversityExamScoreResponse>> GetTiileBySearching(UniversityExamScoreRequest request)
         {
-            var pipeline = new List<BsonDocument>
+            var pipeline = new List<BsonDocument>();
+
+            // Only add initial match if year is provided
+            if (!string.IsNullOrEmpty(request.Year))
+            {
+                pipeline.Add(new BsonDocument("$match", new BsonDocument("$or", new BsonArray()
         {
-            // Initial match to ensure entry score exists for the specified year
-            new BsonDocument("$match", new BsonDocument("$or", new BsonArray()
-            {
-                new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true)),
-                new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
-            })),
-
-            // Lookup for Faculty
-            new BsonDocument("$lookup", new BsonDocument
-            {
-                {"from", "Faculty"},
-                {"localField", "faculty_id"},
-                {"foreignField","_id"},
-                {"as", "faculty_info"}
-            }),
-            new BsonDocument("$unwind", "$faculty_info"),
-
-            // Lookup for University
-            new BsonDocument("$lookup", new BsonDocument
-            {
-                {"from", "University"},
-                {"localField", "faculty_info.university_id"},
-                {"foreignField", "_id"},
-                {"as", "university_info"}
-            }),
-            new BsonDocument("$unwind", "$university_info")
-        };
-
-            // Conditionally add search/filter stage
-            if (!string.IsNullOrWhiteSpace(request.SearchTerm) || request.Year != null)
-            {
-                var matchConditions = new BsonArray();
-
-                // Add search term conditions if provided
-                if (!string.IsNullOrWhiteSpace(request.SearchTerm))
-                {
-                    // Check if the search term matches university name or university code
-                    matchConditions.Add(
-                        new BsonDocument("$or", new BsonArray
-                        {
-                        new BsonDocument("university_info.name", new BsonRegularExpression(request.SearchTerm, "i")), // Search by university name (case-insensitive)
-                        new BsonDocument("university_info.university_code", new BsonRegularExpression(request.SearchTerm, "i"))  // Search by university code (case-insensitive)
-                        })
-                    );
-                }
-
-                // Add year condition if provided
-                if (request.Year != null)
-                {
-                    matchConditions.Add(
-                        new BsonDocument("$or", new BsonArray
-                        {
-                        new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true)),
-                        new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
-                        })
-                    );
-                }
-
-                // Apply the match condition
-                if (matchConditions.Count > 0)
-                {
-                    pipeline.Add(new BsonDocument("$match", new BsonDocument("$and", matchConditions)));
-                }
+            new BsonDocument($"entry_score_exam.{request.Year}", new BsonDocument("$exists", true)),
+            new BsonDocument($"entry_score_record.{request.Year}", new BsonDocument("$exists", true))
+        })));
             }
 
-            // Project stage
-            pipeline.Add(new BsonDocument("$project", new BsonDocument
-        {
-            {"year", request.Year},
-            {"university_code", "$university_info.university_code"},
-            {"university_name", "$university_info.name"},
-            {"title", new BsonDocument("$concat", new BsonArray
+            // Lookup stages remain the same
+            pipeline.AddRange(new[]
             {
-                "Điểm chuẩn năm ",
-                request.Year,
-                " - ",
-                "$university_info.university_code",
-                " - ",
-                "$university_info.name"
-            })}
-        }));
+        new BsonDocument("$lookup", new BsonDocument
+        {
+            {"from", "Faculty"},
+            {"localField", "faculty_id"},
+            {"foreignField","_id"},
+            {"as", "faculty_info"}
+        }),
+        new BsonDocument("$unwind", "$faculty_info"),
+
+        new BsonDocument("$lookup", new BsonDocument
+        {
+            {"from", "University"},
+            {"localField", "faculty_info.university_id"},
+            {"foreignField", "_id"},
+            {"as", "university_info"}
+        }),
+        new BsonDocument("$unwind", "$university_info")
+    });
+
+            // Add search/filter stage if searchTerm is provided
+            if (!string.IsNullOrWhiteSpace(request.SearchTerm))
+            {
+                var searchConditions = new BsonArray
+        {
+            new BsonDocument("university_info.name",
+                new BsonRegularExpression(request.SearchTerm, "i")),
+            new BsonDocument("university_info.university_code",
+                new BsonRegularExpression(request.SearchTerm, "i"))
+        };
+
+                pipeline.Add(new BsonDocument("$match",
+                    new BsonDocument("$or", searchConditions)));
+            }
+
+            // Get current year for default value
+            var currentYear = DateTime.Now.Year;
+            var yearValue = request.Year ?? currentYear.ToString() ;
+
+            // Project stage with null checking
+            pipeline.Add(new BsonDocument("$project", new BsonDocument
+    {
+        {"year", yearValue.ToString()},
+        {"university_code", "$university_info.university_code"},
+        {"university_name", "$university_info.name"},
+        {"title", new BsonDocument("$concat", new BsonArray
+        {
+            "Điểm chuẩn năm ",
+            yearValue.ToString(),
+            " - ",
+            "$university_info.university_code",
+            " - ",
+            "$university_info.name"
+        })}
+    }));
 
             var result = await _majorCollection.Aggregate<BsonDocument>(pipeline).ToListAsync();
 
-            var response = result.Select(r => new UniversityExamScoreResponse
-            {
-                Title = r.Contains("title") ? r["title"].AsString : string.Empty,
-                UniversityCode = r.Contains("university_code") ? r["university_code"].AsString : string.Empty,
-                UniversityName = r.Contains("university_name") ? r["university_name"].AsString : string.Empty,
-                Year = request.Year
-            }).GroupBy(r => r.UniversityName).Select(g => g.First()).ToList();
+            var response = result
+                .Select(r => new UniversityExamScoreResponse
+                {
+                    Title = r.GetValue("title", string.Empty).AsString,
+                    UniversityCode = r.GetValue("university_code", string.Empty).AsString,
+                    UniversityName = r.GetValue("university_name", string.Empty).AsString,
+                    Year = yearValue
+                })
+                .GroupBy(r => r.UniversityName)
+                .Select(g => g.First())
+                .ToList();
 
             return response;
         }
-      
+
         public async Task<List<UniversityExamScoreResponse>> GetTitle()
         {
             var pipeline = new BsonDocument[]
@@ -248,7 +238,7 @@ namespace UniVisionBot.Repositories.UniversityExamScore
                         })
                     }
                 })
-           }    ;
+           };
 
             var result = await _majorCollection.Aggregate<BsonDocument>(pipeline).ToListAsync();
 

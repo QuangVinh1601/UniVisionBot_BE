@@ -5,16 +5,14 @@ namespace UniVisionBot.DTOs.University
     public class UniversityRequest
     {
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(100, ErrorMessage = "Name can't be longer than 100 characters")]
+        [StringLength(255, ErrorMessage = "Name can't be longer than 100 characters")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Location is required")]
         [StringLength(100, ErrorMessage = "Location can't be longer than 100 characters")]
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
-        [Required(ErrorMessage = "Description is required")]
         [StringLength(500, ErrorMessage = "Description can't be longer than 500 characters")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required(ErrorMessage = "University code is required")]
         [StringLength(100, ErrorMessage = "Name can't be longer than 100 characters")]

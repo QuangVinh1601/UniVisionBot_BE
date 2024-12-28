@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.WebSockets;
 using System.Web;
 using UniVisionBot.DTOs.Article;
 using UniVisionBot.Exceptions;
@@ -24,11 +25,15 @@ namespace UniVisionBot.Area.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ArticleRequest request)
         {
+            Dictionary<string, string> urlImage = new Dictionary<string, string>();
             if (!ModelState.IsValid)
             {
                 throw new BadInputException("Invalid input");
             }
-            var urlImage = await _imageRepository.GetUrlImage(request.ImageFile);
+            if(request.ImageFile != null)
+            {
+                urlImage = await _imageRepository.GetUrlImage(request.ImageFile);
+            }
             if (urlImage == null)
             {
                 throw new Exception("Has any error adding image");

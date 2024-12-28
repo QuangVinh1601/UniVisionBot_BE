@@ -4,7 +4,7 @@ namespace UniVisionBot.Services.Article
 {
     public interface IArticleRepository
     {
-        Task CreateNewArticle(ArticleRequest request, Dictionary<string,string> listUrlImage);
+        Task CreateNewArticle(ArticleRequest request, Dictionary<string,string>? listUrlImage);
         Task<List<ArticleResponse>> GetAllArticle();
         ArticleResponse GetArticleById(string articleId);
         Task DeleteArticleById(string articleId);

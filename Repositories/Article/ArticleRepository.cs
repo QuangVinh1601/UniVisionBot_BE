@@ -29,7 +29,7 @@ namespace UniVisionBot.Repositories.Articles
             _imageRepository = imageRepository;
         }
 
-        public async Task CreateNewArticle(ArticleRequest request, Dictionary<string, string> listUrlImage)
+        public async Task CreateNewArticle(ArticleRequest request, Dictionary<string, string>? listUrlImage)
         {
             try
             {

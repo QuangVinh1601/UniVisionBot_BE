@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UniVisionBot.DTOs.Chat;
 using UniVisionBot.DTOs.User;
+using UniVisionBot.Exceptions;
 using UniVisionBot.Services.User;
 
 namespace UniVisionBot.Area.Admin.Controllers
@@ -36,8 +37,15 @@ namespace UniVisionBot.Area.Admin.Controllers
         [HttpPut("{userId}")]
         public async Task<IActionResult> UpdateUser(string userId, UserRequest request)
         {
-            await _userRepository.UpdateUser(userId, request);
-            return Ok();
+            try
+            {
+                await _userRepository.UpdateUser(userId, request);
+                return Ok();
+            }
+            catch(BadInputException ex)
+            {
+                return BadRequest(ex.Message);  
+            }
         }
     }
 }

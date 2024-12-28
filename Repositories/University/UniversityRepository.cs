@@ -28,7 +28,14 @@ namespace UniVisionBot.Repositories.Universities
 
         public async Task CreateAsync(University request)
         {
-           await  _universityCollection.InsertOneAsync(request);
+           var university = await _universityCollection.Find(u => u.UniversityCode == request.UniversityCode).FirstOrDefaultAsync();
+           if(university != null)
+           {
+                throw new BadInputException("Existed University");
+           }
+            await _universityCollection.InsertOneAsync(request);
+
+
         }
 
         public async Task DeleteAsync(string id)
@@ -76,6 +83,11 @@ namespace UniVisionBot.Repositories.Universities
                 throw new BadInputException("Invalid format");
             }
             var university =  _universityCollection.AsQueryable().Where(u => u.Id == id).FirstOrDefault();
+            var universityDuplicate = await  _universityCollection.Find(u => u.UniversityCode == request.UniversityCode).FirstOrDefaultAsync();
+            if(universityDuplicate != null)
+            {
+                throw new BadInputException("Existed university");
+            }
             if(university == null)
             {
                 throw new NotFoundException(nameof(university), id);

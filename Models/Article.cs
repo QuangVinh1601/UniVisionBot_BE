@@ -19,7 +19,7 @@ namespace UniVisionBot.Models
         [BsonElement("content")]
         public string Content { get; set; }
         [BsonElement("urlImage")]
-        public Dictionary<string, string> UrlImage { get; set; }
+        public Dictionary<string, string>? UrlImage { get; set; }
         [BsonElement("created_at")]
         public DateTime CreatedAt { get; set; }  
     }
