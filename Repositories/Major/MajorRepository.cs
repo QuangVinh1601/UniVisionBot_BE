@@ -60,7 +60,7 @@ namespace UniVisionBot.Repositories.MajorRepository
             {
                 throw new NotFoundException("faculty", majorId);
             }
-            var majors = await _majorCollection.Find(m => m.FacultyId == majorExisted.FacultyId).ToListAsync();
+            var majors = await _majorCollection.Find(m => m.FacultyId == majorExisted.FacultyId && m.Id != majorExisted.Id).ToListAsync();
             foreach (var major in majors)
             {
                 if (major.MajorCode == request.MajorCode)
