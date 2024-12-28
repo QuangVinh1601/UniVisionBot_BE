@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.WebSockets;
@@ -30,7 +31,7 @@ namespace UniVisionBot.Area.Admin.Controllers
             {
                 throw new BadInputException("Invalid input");
             }
-            if(request.ImageFile != null)
+            if (request.ImageFile != null)
             {
                 urlImage = await _imageRepository.GetUrlImage(request.ImageFile);
             }
@@ -53,23 +54,28 @@ namespace UniVisionBot.Area.Admin.Controllers
             var article = _articleRepository.GetArticleById(articleId);
             return Ok(article);
         }
-        [HttpDelete("{articleId}/{publicId}")]
+        [HttpDelete("{articleId}/{publicId?}")]
         //Truyền vào 1 list publicId
-        public async Task<IActionResult> DeleteArticleById(string articleId, string publicId)
+        public async Task<IActionResult> DeleteArticleById(string articleId, string? publicId)
         {
-             var decodepublicId = HttpUtility.UrlDecode(publicId);      
-             var result =  await _imageRepository.DeleteImageById(decodepublicId);
-             await _articleRepository.DeleteArticleById(articleId);
-             return Ok(result);
+            DeletionResult result = new DeletionResult();
+            if(publicId != null)
+            {
+                var decodepublicId = HttpUtility.UrlDecode(publicId);
+                result = await _imageRepository.DeleteImageById(decodepublicId);
+            }
+ 
+            await _articleRepository.DeleteArticleById(articleId);
+            return Ok();
         }
         [HttpPut("{articleId}")]
         public async Task<IActionResult> UpdateArticle(string articleId, [FromForm] UpdateArticleWithImageRequest request)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 throw new BadInputException("Invalid input");
             }
-            await _articleRepository.UpdateArticle(articleId,request); 
+            await _articleRepository.UpdateArticle(articleId, request);
             return Ok();
         }
         [HttpPut("{articleId}/update-without-image")]
